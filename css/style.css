@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+}
+
+header {
+    background-image: url(../img/bg1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 222px;
+    border-bottom: 3px solid #F9B341;
+    text-align: center;
+}
+
+.pb {
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    padding-top: 44px;
+    padding-bottom: 62px;
+    letter-spacing: 2px;
+}
+
+.search {
+    display: inline-block;
+    margin-right: 134px;
+}
+
+.add_contact {
+    display: inline-block;
+    font-family: 'century gothic', sans-serif;
+}
+
+.search_field {
+    border: 1px solid #F9B341;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    width: 321px;
+    height: 32px;
+    padding-left: 11px;
+}
+
+.search_btn {
+    border: 1px solid #F9B341;
+    background-color: #F9B341;
+    color: white;
+    font-family: 'century gothic', sans-serif;
+    font-size: 15px;
+    padding: 6px 20px 6px 20px;
+    margin-left: -4.5px;
+}
+
+.add_btn {
+    border: 1px solid #F9B341;
+    background-color: #F9B341;
+    color: white;
+    font-family: 'century gothic', sans-serif;
+    font-size: 15px;
+    padding: 6px 22px 6px 22px;
+}
+
+#accordion {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: 'century gothic', sans-serif;
+    margin-top: 50px;
+}
+
+.contact_name {
+    text-align: left;
+    padding: 18px;
+    font-size: 20px;
+    border-bottom: 1px solid #F9B341;
+}
+
+.contact_name span {
+    margin-left: 40px;
+}
+
+.contact_name.active + .contact_card {
+    display: block;
+}
+
+.contact_name:hover {
+    cursor: pointer;
+}
+
+.contact_card {
+    display: none;
+    border: 1px solid #F9B341;
+    border-top: none;
+}
+
+.card_actions i {
+    float: right;
+    margin-right: 10px;
+    margin-top: 8px;
+    font-size: 18px;
+}
+
+.card_actions {
+    padding-top: 7px;
+    margin-right: 10px;
+}
+
+.contact {
+    margin-left: -96px;
+    margin-right: -96px;
+}
+
+.card_content {
+    padding-top: 30px;
+    padding-bottom: 17px;
+    margin-left: 58.5px;
+}
+
+.card_content .fa-mobile {
+    font-size: 23px;
+    margin-right: 15px;
+}
+
+.card_content .fa-envelope {
+    font-size: 15px;
+    margin-left: -2.4px;
+    margin-right: 12.6px;
+}
+
+.card_content input {
+    background: transparent;
+    border: none;
+    font-family: 'century gothic', sans-serif;
+    font-size: 15px;
+}
+
+.card_content input[type=email],
+.card_content input[type=tel] {
+    width: 200px;
+    margin-right: 25px;
+}
+
+.card_content .save_btn {
+    border: 1px solid #F9B341;
+    background-color: #F9B341;
+    color: white;
+    font-family: 'century gothic', sans-serif;
+    font-size: 15px;
+    padding: 6px 70px 6px 70px;
+    margin-top: 50px;
+    margin-left: 33%;
+}
+
+
+
+
+

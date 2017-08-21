@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PhoneBook</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/fontawesome/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black">
+</head>
+<body>
+    <header>
+        <div class="pb">
+            <h1>PhoneBook</h1>
+        </div>
+        <div>
+            <div class="search">
+                <form>
+                    <input class="search_field" type="search" placeholder="Enter name here...">
+                    <input class="search_btn" type="submit" value="Search">
+                </form>
+            </div>
+            <div class="add_contact">
+                <form>
+                    <input class="add_btn" type="button" value="Add contact">
+                </form>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="accordion">
+            <div class="contact">
+                <div class="contact_name">
+                    <span>Вася Пупкин</span>
+                </div>
+                <div class="contact_card">
+                    <div class="card_actions">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="card_content">
+                        <form>
+                            <p>
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <input type="tel" value="+38(066)38910095" readonly>
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <input type="email" value="vasyapup@gmail.com" readonly>
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </p>
+                            <p>
+                                <input class="save_btn" type="button" value="Save">
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="contact">
+                <div class="contact_name">
+                    <span>Оля Петрова</span>
+                </div>
+                <div class="contact_card">
+                    <div class="card_actions">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="card_content">
+                        <form>
+                            <p>
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <input type="tel" value="+38(066)38910095" readonly>
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <input type="email" value="vasyapup@gmail.com" readonly>
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </p>
+                            <p>
+                                <input class="save_btn" type="button" value="Save">
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="contact">
+                <div class="contact_name">
+                    <span>Олег Горбенко</span>
+                </div>
+                <div class="contact_card">
+                    <div class="card_actions">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="card_content">
+                        <form>
+                            <p>
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <input type="tel" value="+38(066)38910095" readonly>
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <input type="email" value="vasyapup@gmail.com" readonly>
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </p>
+                            <p>
+                                <input class="save_btn" type="button" value="Save">
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="contact">
+                <div class="contact_name">
+                    <span>Маша Колодец</span>
+                </div>
+                <div class="contact_card">
+                    <div class="card_actions">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="card_content">
+                        <form>
+                            <p>
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <input type="tel" value="+38(066)38910095" readonly>
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <input type="email" value="vasyapup@gmail.com" readonly>
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </p>
+                            <p>
+                                <input class="save_btn" type="button" value="Save">
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/accordeon.js"></script>
+    </main>
+</body>
+</html>
