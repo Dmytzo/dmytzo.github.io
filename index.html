@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/fontawesome/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black">
 </head>
-<body>
+<body onload="checkStorageForContacts();">
     <header>
         <div class="pb">
             <h1>PhoneBook</h1>
@@ -22,14 +22,42 @@
             </div>
             <div class="add_contact">
                 <form>
-                    <input class="add_btn" type="button" value="Add contact">
+                    <input id="addBtn" class="add_btn" type="button" value="Add contact">
                 </form>
             </div>
         </div>
     </header>
     <main>
-        <div id="accordion">
-            <div class="contact">
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="formAddContact" onsubmit="saveContact(this);">
+                    <div class="add_form">   
+                        <div class="add_name">
+                            <input type="text" name="name" id="formName" placeholder="enter name" required>
+                        </div>
+                        <div class="add_card">
+                            <p>
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <input type="tel" name="telephone" id="formTelephone" required placeholder="enter phone number">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <input type="email" name="email" placeholder="enter e-mail address">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </p>
+                            <p>
+                                <input class="addSave" type="submit" value="Add">
+                            </p>   
+                        </div> 
+                    </div>     
+                </form>
+            </div>
+        </div>  
+        <p id="noContacts">No contacts</p>
+        <div id="contacts">
+            <!-- <div class="contact">
                 <div class="contact_name">
                     <span>Вася Пупкин</span>
                 </div>
@@ -140,7 +168,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <script src="js/accordeon.js"></script>
     </main>
