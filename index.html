@@ -22,7 +22,7 @@
             </div>
             <div class="add_contact">
                 <form>
-                    <input id="addBtn" class="add_btn" type="button" value="Add contact">
+                    <input id="addBtn" onclick="addBtnContact()" class="add_btn" type="button" value="Add contact">
                 </form>
             </div>
         </div>
@@ -30,11 +30,14 @@
     <main>
         <div id="myModal" class="modal">
             <div class="modal-content">
-                <span class="close">&times;</span>
+                <span onclick="closeModal()" class="close">&times;</span>
                 <form id="formAddContact" onsubmit="saveContact(this);">
-                    <div class="add_form">   
+                    <div class="add_form">
                         <div class="add_name">
-                            <input type="text" name="name" id="formName" placeholder="enter name" required>
+                            First name<br>
+                            <input type="text" class="formField" name="name" id="formName" placeholder="enter first name" required><br>
+                            Last name<br>
+                            <input type="text" name="lastname" id="formLastname" placeholder="enter last name" required>
                         </div>
                         <div class="add_card">
                             <p>
@@ -54,123 +57,136 @@
                     </div>     
                 </form>
             </div>
-        </div>  
+        </div>
+        <div id="myModalRemove" class="modal">
+            <div class="modal-content">
+                <p>Are you sure that you want to delete this contact?</p>
+                <button id="remove_yes">Yes, delete!</button>
+                <button id="remove_no">No, sorry</button>
+            </div>
+        </div>
         <p id="noContacts">No contacts</p>
         <div id="contacts">
-            <!-- <div class="contact">
-                <div class="contact_name">
-                    <span>Вася Пупкин</span>
-                </div>
-                <div class="contact_card">
-                    <div class="card_actions">
-                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    </div>
-                    <div class="card_content">
-                        <form>
-                            <p>
-                                <i class="fa fa-mobile" aria-hidden="true"></i>
-                                <input type="tel" value="+38(066)38910095" readonly>
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </p>
-                            <p>
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <input type="email" value="vasyapup@gmail.com" readonly>
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </p>
-                            <p>
-                                <input class="save_btn" type="button" value="Save">
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="contact">
-                <div class="contact_name">
-                    <span>Оля Петрова</span>
-                </div>
-                <div class="contact_card">
-                    <div class="card_actions">
-                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    </div>
-                    <div class="card_content">
-                        <form>
-                            <p>
-                                <i class="fa fa-mobile" aria-hidden="true"></i>
-                                <input type="tel" value="+38(066)38910095" readonly>
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </p>
-                            <p>
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <input type="email" value="vasyapup@gmail.com" readonly>
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </p>
-                            <p>
-                                <input class="save_btn" type="button" value="Save">
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="contact">
-                <div class="contact_name">
-                    <span>Олег Горбенко</span>
-                </div>
-                <div class="contact_card">
-                    <div class="card_actions">
-                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    </div>
-                    <div class="card_content">
-                        <form>
-                            <p>
-                                <i class="fa fa-mobile" aria-hidden="true"></i>
-                                <input type="tel" value="+38(066)38910095" readonly>
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </p>
-                            <p>
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <input type="email" value="vasyapup@gmail.com" readonly>
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </p>
-                            <p>
-                                <input class="save_btn" type="button" value="Save">
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="contact">
-                <div class="contact_name">
-                    <span>Маша Колодец</span>
-                </div>
-                <div class="contact_card">
-                    <div class="card_actions">
-                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    </div>
-                    <div class="card_content">
-                        <form>
-                            <p>
-                                <i class="fa fa-mobile" aria-hidden="true"></i>
-                                <input type="tel" value="+38(066)38910095" readonly>
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </p>
-                            <p>
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <input type="email" value="vasyapup@gmail.com" readonly>
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </p>
-                            <p>
-                                <input class="save_btn" type="button" value="Save">
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div> -->
+            <!--1 -->
+            <!--<div class="contact">-->
+                <!--<div class="contact_name">-->
+                    <!--<form class="for_edit">-->
+                        <!--<input class="first_name" type="text" name="firstname" value="Вася">-->
+                        <!--<input class="last_name" type="text" name="lastname" value="Пупкин">-->
+                    <!--</form>-->
+                    <!--<span>Вася Пупкин</span>-->
+                <!--</div>-->
+                <!--<div class="contact_card">-->
+                    <!--<div class="card_actions">-->
+                        <!--<button><i class="fa fa-trash-o" aria-hidden="true"></i></button>-->
+                        <!--<button><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>-->
+                    <!--</div>-->
+                    <!--<div class="card_content">-->
+                        <!--<form>-->
+                            <!--<p>-->
+                                <!--<i class="fa fa-mobile" aria-hidden="true"></i>-->
+                                <!--<input type="tel" value="+38(066)38910095" readonly>-->
+                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
+                            <!--</p>-->
+                            <!--<p>-->
+                                <!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
+                                <!--<input type="email" value="vasyapup@gmail.com" readonly>-->
+                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
+                            <!--</p>-->
+                            <!--<p>-->
+                                <!--<input class="save_btn" type="button" value="Save">-->
+                            <!--</p>-->
+                        <!--</form>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="contact">-->
+                <!--<div class="contact_name">-->
+                    <!--<span>Оля Петрова</span>-->
+                <!--</div>-->
+                <!--<div class="contact_card">-->
+                    <!--<div class="card_actions">-->
+                        <!--<button><i class="fa fa-trash-o" aria-hidden="true"></i></button>-->
+                        <!--<button><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>-->
+                    <!--</div>-->
+                    <!--<div class="card_content">-->
+                        <!--<form>-->
+                            <!--<p>-->
+                                <!--<i class="fa fa-mobile" aria-hidden="true"></i>-->
+                                <!--<input type="tel" value="+38(066)38910095" readonly>-->
+                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
+                            <!--</p>-->
+                            <!--<p>-->
+                                <!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
+                                <!--<input type="email" value="vasyapup@gmail.com" readonly>-->
+                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
+                            <!--</p>-->
+                            <!--<p>-->
+                                <!--<input class="save_btn" type="button" value="Save">-->
+                            <!--</p>-->
+                        <!--</form>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="contact">-->
+                <!--<div class="contact_name">-->
+                    <!--<span>Олег Горбенко</span>-->
+                <!--</div>-->
+                <!--<div class="contact_card">-->
+                    <!--<div class="card_actions">-->
+                        <!--<button><i class="fa fa-trash-o" aria-hidden="true"></i></button>-->
+                        <!--<button><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>-->
+                    <!--</div>-->
+                    <!--<div class="card_content">-->
+                        <!--<form>-->
+                            <!--<p>-->
+                                <!--<i class="fa fa-mobile" aria-hidden="true"></i>-->
+                                <!--<input type="tel" value="+38(066)38910095" readonly>-->
+                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
+                            <!--</p>-->
+                            <!--<p>-->
+                                <!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
+                                <!--<input type="email" value="vasyapup@gmail.com" readonly>-->
+                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
+                            <!--</p>-->
+                            <!--<p>-->
+                                <!--<input class="save_btn" type="button" value="Save">-->
+                            <!--</p>-->
+                        <!--</form>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="contact">-->
+                <!--<div class="contact_name">-->
+                    <!--<span>Маша Колодец</span>-->
+                <!--</div>-->
+                <!--<div class="contact_card">-->
+                    <!--<div class="card_actions">-->
+                        <!--<button><i class="fa fa-trash-o" aria-hidden="true"></i></button>-->
+                        <!--<button><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>-->
+                    <!--</div>-->
+                    <!--<div class="card_content">-->
+                        <!--<form>-->
+                            <!--<p>-->
+                                <!--<i class="fa fa-mobile" aria-hidden="true"></i>-->
+                                <!--<input type="tel" value="+38(066)38910095" readonly>-->
+                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
+                            <!--</p>-->
+                            <!--<p>-->
+                                <!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
+                                <!--<input type="email" value="vasyapup@gmail.com" readonly>-->
+                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
+                            <!--</p>-->
+                            <!--<p>-->
+                                <!--<input class="save_btn" type="button" value="Save">-->
+                            <!--</p>-->
+                        <!--</form>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--1-->
         </div>
-        <script src="js/accordeon.js"></script>
+        <script src="js/main.js"></script>
     </main>
 </body>
 </html>
