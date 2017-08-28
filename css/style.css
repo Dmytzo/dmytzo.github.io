@@ -152,8 +152,8 @@ header {
     margin-right: 25px;
 }
 
-.card_content #save_btn,
-.card_content #unsave_btn {
+.card_content .save_btn,
+.card_content .unsave_btn {
     border: none;
     background-color: #F9B341;
     color: white;
@@ -166,7 +166,7 @@ header {
     display: none;
 }
 
-.card_content #unsave_btn {
+.card_content .unsave_btn {
     border: 1px solid #F9B341;
     color: #F9B341;
     background-color: white;
@@ -285,6 +285,7 @@ input {
     font-family: 'century gothic', sans-serif;
     padding: 7px 0 7px 0;
     border: 1px solid #F9B341;
+    display: none;
 }
 
 .first_name {
@@ -292,12 +293,8 @@ input {
     margin-right: 15px;
 }
 
-.for_edit {
-    display: none;
-}
 
-#add_telfield,
-#add_emailfield {
+.addfieldbtn {
     display: none;
 }
 

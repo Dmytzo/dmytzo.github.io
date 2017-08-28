@@ -17,8 +17,10 @@ var title = document.getElementsByClassName('contact_name'),
             }
             if (classesArr.length === newClassesArr.length) {
                 classesArr.push('active');
+
                 newClasses = classesArr.join(' ');
             } else {
+
                 newClasses = classesArr.join(' ');
             }
 
@@ -41,21 +43,39 @@ var title = document.getElementsByClassName('contact_name'),
 //Поп-ап для создания контакта
 
 function addBtnContact() {
+    document.forms["formAddContact"].reset();
+    var FormAdd = document.getElementById('formAddContact');
+    FormAdd.setAttribute("onsubmit", "saveContact(this)");
     var modal = document.getElementById('myModal');
     modal.style.display = "block";
+
+    var SaveEditBtn = document.getElementById('addSave');
+    SaveEditBtn.value = "Add";
+    SaveEditBtn.type = "submit";
+    SaveEditBtn.removeAttribute("onclick")
 }
 
 function closeModal() {
-        modal = document.getElementById('myModal');
-        modal.style.display = "none";
+    modal = document.getElementById('myModal');
+    modal.style.display = "none";
+
+    var EditName = document.getElementById('formName');
+    EditName.removeAttribute("value");
+    var EditLastname = document.getElementById('formLastname');
+    EditLastname.removeAttribute("value");
+    var EditTel = document.getElementById('formTelephone');
+    EditTel.removeAttribute("value");
+    var EditEmail = document.getElementById('formEmail');
+    EditEmail.removeAttribute("value");
 }
 
 window.onclick = function(event) {
     modal = document.getElementById('myModal');
     if (event.target == modal){
         modal.style.display = "none";
+        closeModal();
     }
-};
+}
 
 //Телефонная книга
 function checkStorageForContacts(){
@@ -95,7 +115,7 @@ function removeContact(contact){
                 document.getElementById("noContacts").style.display="block";
             }
             localStorage.setItem('contacts', JSON.stringify(contacts));
-            var contacts = document.getElementById("contact-"+id);
+            var contacts = document.getElementById('contact-' +id);
             contacts.parentNode.removeChild(contacts);
             modal.style.display = "none";
         };
@@ -105,25 +125,60 @@ function removeContact(contact){
         };
 }
 
+function editContact(editbtn) {
+    var modal = document.getElementById('myModal');
+    modal.style.display = "block";
+
+    var id = editbtn.id;
+    var contacts = JSON.parse(localStorage.getItem('contacts'));
+    var contact = contacts[id];
+
+    var FormAdd = document.getElementById('formAddContact');
+    // FormAdd.setAttribute("onsubmit", "editYes(editbtn, form)");
+
+    FormAdd.removeAttribute("onsubmit");
+
+    var SaveEditBtn = document.getElementById('addSave');
+    // SaveEditBtn.setAttribute("value", "Save it");
+
+    SaveEditBtn.setAttribute("value", "Save it");
+    SaveEditBtn.setAttribute("type", "button");
+
+    var EditName = document.getElementById('formName');
+    EditName.value = contact.name;
+    var EditLastname = document.getElementById('formLastname');
+    EditLastname.value = contact.lastname;
+    var EditTel = document.getElementById('formTelephone');
+    EditTel.value = contact.telephone;
+    var EditEmail = document.getElementById('formEmail');
+    EditEmail.value = contact.email;
 
 
 
-function editContact() {
-    var addTelBtn = document.getElementById('add_telfield');
-    var addEmailBtn = document.getElementById('add_emailfield');
-    var saveEditBtn = document.getElementById('save_btn');
-    var unSaveEditBtn = document.getElementById('unsave_btn');
-    addTelBtn.style.display = "inline-block";
-    addEmailBtn.style.display = "inline-block";
-    saveEditBtn.style.display = "inline-block";
-    unSaveEditBtn.style.display = "inline-block";
+    SaveEditBtn.onclick = function () {
+        var contact = contacts[id];
+        contact.name = EditName.value;
+        contact.lastname = EditLastname.value;
+        contact.telephone = EditTel.value;
+        contact.email = EditEmail.value;
+
+        if((contact.name !== "") && (contact.lastname !== "") && (contact.telephone !== "") && (contact.email !== "")){
+
+            // contacts.push(contact);
+            // var lastItem = contacts.length - 1;
+            // contacts.splice(lastItem, 1);
+            localStorage.setItem('contacts', JSON.stringify(contacts));
+
+            document.getElementById("fullname-"+id).innerHTML = contact.name + ' ' + contact.lastname;
+            document.getElementById("tel_card-"+id).value = contact.telephone;
+
+            document.getElementById("email_card-"+id).value = contact.email;
+
+
+            closeModal();
+        }
+    }
 }
-
-
-
-
-
-
 
 function fetchContacts(){
     var contacts = [ ];
@@ -136,21 +191,22 @@ function fetchContacts(){
         divContact.className = "contact";
         divContacts.appendChild(divContact);
 
-        var str =  '<div class="contact_name">';
-        str += '<span>' + contacts[i].name + ' ' + contacts[i].lastname + '</span></div>';
-        str += '</div>';
+        var str =  '<div id="contact_name'+i+'" class="contact_name">';
+        str += '<span id="fullname-'+i+'">' + contacts[i].name + ' ' + contacts[i].lastname + '</span><form class="for_edit">';
+        str += '<input class="first_name" type="text" id="firstname-'+i+'" value="' + contacts[i].name + '">';
+        str += '<input class="last_name" type="text" id="lastname-'+i+'" value="' + contacts[i].lastname + '"></form></div>';
         str += '<div class="contact_card"><div class="card_actions">';
         str += '<button onclick="removeContact(this)" class="delbtn" id ="'+ i +'"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
-        str += '<button id="editbtn" onclick="editContact()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></button>';
+        str += '<button id="'+i+'"  onclick="editContact(this)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></button>';
         str += '<div class="card_content"><form>';
         str += '<p><i class="fa fa-mobile" aria-hidden="true"></i>';
-        str += '<input type="tel" value="' + contacts[i].telephone + '" readonly>';
-        str += '<button id="add_telfield"><i class="fa fa-plus" aria-hidden="true"></i>';
+        str += '<input id="tel_card-'+i+'"  type="tel" value="' + contacts[i].telephone + '" readonly>';
+        str += '<button class="addfieldbtn" id="add_telfield-'+ i +'"><i class="fa fa-plus" aria-hidden="true"></i>';
         str += '</button></p><p><i class="fa fa-envelope" aria-hidden="true"></i></i>';
-        str += '<input type="email" value="' + contacts[i].email + '" readonly>';
-        str += '<button id="add_emailfield"><i class="fa fa-plus" aria-hidden="true"></i>';
-        str += '</button></p><p><input id="save_btn" type="button" value="Save">';
-        str += '<input id="unsave_btn" type="button" value="Close"></p>';
+        str += '<input id="email_card-'+i+'" type="email" value="' + contacts[i].email + '" readonly>';
+        str += '<button class="addfieldbtn" id="add_emailfield-'+ i +'"><i class="fa fa-plus" aria-hidden="true"></i>';
+        str += '</button></p><p><input class="save_btn" id="save_btn-'+ i +'" type="button" value="Save">';
+        str += '<input class="unsave_btn" id="unsave_btn-'+i+'" type="button" value="Close"></p>';
         str += '</form></div></div>';
         divContact.innerHTML += str;
     }

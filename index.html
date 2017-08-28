@@ -31,7 +31,7 @@
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span onclick="closeModal()" class="close">&times;</span>
-                <form id="formAddContact" onsubmit="saveContact(this);">
+                <form id="formAddContact">
                     <div class="add_form">
                         <div class="add_name">
                             First name<br>
@@ -47,11 +47,11 @@
                             </p>
                             <p>
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <input type="email" name="email" placeholder="enter e-mail address">
+                                <input type="email" name="email" id="formEmail" required placeholder="enter e-mail address" >
                                 <i class="fa fa-plus" aria-hidden="true"></i>
                             </p>
                             <p>
-                                <input class="addSave" type="submit" value="Add">
+                                <input class="addSave" id="addSave" type="submit" value="Add">
                             </p>   
                         </div> 
                     </div>     
