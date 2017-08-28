@@ -49,10 +49,18 @@ function addBtnContact() {
     var modal = document.getElementById('myModal');
     modal.style.display = "block";
 
-    var SaveEditBtn = document.getElementById('addSave');
-    SaveEditBtn.value = "Add";
-    SaveEditBtn.type = "submit";
-    SaveEditBtn.removeAttribute("onclick")
+    var addSaveBtn = document.getElementById('addSave');
+    addSaveBtn.style.display = "block";
+    var SaveEditBtn = document.getElementById('addSaveEdit');
+    SaveEditBtn.style.display = "none";
+
+
+
+    // SaveEditBtn.value = "Add";
+    // SaveEditBtn.type = "submit";
+    // SaveEditBtn.removeAttribute("onclick")
+
+
 }
 
 function closeModal() {
@@ -136,13 +144,28 @@ function editContact(editbtn) {
     var FormAdd = document.getElementById('formAddContact');
     // FormAdd.setAttribute("onsubmit", "editYes(editbtn, form)");
 
+
+
     FormAdd.removeAttribute("onsubmit");
 
-    var SaveEditBtn = document.getElementById('addSave');
+
+
+    var SaveEditBtn = document.getElementById('addSaveEdit');
+    SaveEditBtn.style.display = "block";
+
+
+
+    var addSaveBtn = document.getElementById('addSave');
+    addSaveBtn.style.display = "none";
     // SaveEditBtn.setAttribute("value", "Save it");
 
-    SaveEditBtn.setAttribute("value", "Save it");
-    SaveEditBtn.setAttribute("type", "button");
+
+
+    // SaveEditBtn.setAttribute("value", "Save it");
+    // SaveEditBtn.setAttribute("type", "button");
+
+
+
 
     var EditName = document.getElementById('formName');
     EditName.value = contact.name;
