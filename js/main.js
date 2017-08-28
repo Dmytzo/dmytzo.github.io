@@ -53,14 +53,6 @@ function addBtnContact() {
     addSaveBtn.style.display = "block";
     var SaveEditBtn = document.getElementById('addSaveEdit');
     SaveEditBtn.style.display = "none";
-
-
-
-    // SaveEditBtn.value = "Add";
-    // SaveEditBtn.type = "submit";
-    // SaveEditBtn.removeAttribute("onclick")
-
-
 }
 
 function closeModal() {
@@ -108,6 +100,10 @@ function saveContact(form){
     contact.telephone = form.telephone.value;
     contact.email = form.email.value;
     contacts.push(contact);
+
+
+    contacts.sort(compare);
+
     localStorage.setItem('contacts', JSON.stringify(contacts));
 }
 
@@ -142,13 +138,7 @@ function editContact(editbtn) {
     var contact = contacts[id];
 
     var FormAdd = document.getElementById('formAddContact');
-    // FormAdd.setAttribute("onsubmit", "editYes(editbtn, form)");
-
-
-
     FormAdd.removeAttribute("onsubmit");
-
-
 
     var SaveEditBtn = document.getElementById('addSaveEdit');
     SaveEditBtn.style.display = "block";
@@ -157,14 +147,6 @@ function editContact(editbtn) {
 
     var addSaveBtn = document.getElementById('addSave');
     addSaveBtn.style.display = "none";
-    // SaveEditBtn.setAttribute("value", "Save it");
-
-
-
-    // SaveEditBtn.setAttribute("value", "Save it");
-    // SaveEditBtn.setAttribute("type", "button");
-
-
 
 
     var EditName = document.getElementById('formName');
@@ -186,10 +168,7 @@ function editContact(editbtn) {
         contact.email = EditEmail.value;
 
         if((contact.name !== "") && (contact.lastname !== "") && (contact.telephone !== "") && (contact.email !== "")){
-
-            // contacts.push(contact);
-            // var lastItem = contacts.length - 1;
-            // contacts.splice(lastItem, 1);
+            contacts.sort(compare);
             localStorage.setItem('contacts', JSON.stringify(contacts));
 
             document.getElementById("fullname-"+id).innerHTML = contact.name + ' ' + contact.lastname;
@@ -199,6 +178,7 @@ function editContact(editbtn) {
 
 
             closeModal();
+            location.reload()
         }
     }
 }
@@ -241,12 +221,29 @@ function fetchContacts(){
 
 
 
+//Sorting
+function compare(a,b) {
+    var contacts = JSON.parse(localStorage.getItem('contacts'));
+    if (a.name < b.name)
+        return -1;
+    if (a.name > b.name)
+        return 1;
+    return 0;
+}
+
+// function sortIt() {
+//     var contacts = JSON.parse(localStorage.getItem('contacts'));
+//     contacts.sort(compare);
+//     localStorage.setItem('contacts', JSON.stringify(contacts));
+// };
 
 
+// Searching
 
 
+function search() {
 
-
+}
 
 
 
