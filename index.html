@@ -16,13 +16,13 @@
         <div>
             <div class="search">
                 <form>
-                    <input class="search_field" id="search_field" type="text" placeholder="Enter name here...">
-                    <input class="search_btn" type="submit" value="Search">
+                    <input class="search_field" onkeyup="search()" id="search_field" type="text" placeholder="Enter name or lastname here...">
+                    <input class="search_btn" id="reset" type="submit" value="Reset">
                 </form>
             </div>
             <div class="add_contact">
                 <form onsubmit="sortIt()">
-                    <input class="search_btn" id="sort" type="submit" value="Sort by name">
+                    <!--<input class="search_btn" id="sort" type="submit" value="Sort by name">-->
                     <input id="addBtn" onclick="addBtnContact()" class="add_btn" type="button" value="Add contact">
                 </form>
             </div>

@@ -242,8 +242,30 @@ function compare(a,b) {
 
 
 function search() {
-
+    var contacts = JSON.parse(localStorage.getItem('contacts'));
+    var searchField = document.getElementById("search_field");
+    var resetBtn = document.getElementById("reset");
+    for (i = 0; i < contacts.length; i++) {
+        var filter = searchField.value.toUpperCase();
+        // var contact = document.getElementById("contact-" + i)[0];
+            if ((contacts[i].name.toUpperCase().indexOf(filter) > -1) ||
+                (contacts[i].lastname.toUpperCase().indexOf(filter) > -1)) {
+                document.getElementById("contact-" + i).style.display = "";
+                // alert(contacts[i].name +' true');
+            } else {
+                document.getElementById("contact-" + i).style.display = "none";
+                // alert(contacts[i].name +' false');
+            }
+        }
+    resetBtn.onclick = function () {
+        searchField.value = '';
+    }
 }
+
+
+
+
+
 
 
 
