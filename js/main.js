@@ -58,15 +58,17 @@ function addBtnContact() {
 function closeModal() {
     modal = document.getElementById('myModal');
     modal.style.display = "none";
+    // var EditName = document.getElementById('formName');
+    // EditName.removeAttribute("value");
+    // var EditLastname = document.getElementById('formLastname');
+    // EditLastname.removeAttribute("value");
+    // var EditTel = document.getElementById('formTelephone');
+    // EditTel.removeAttribute("value");
+    // var EditEmail = document.getElementById('formEmail');
+    // EditEmail.removeAttribute("value");
 
-    var EditName = document.getElementById('formName');
-    EditName.removeAttribute("value");
-    var EditLastname = document.getElementById('formLastname');
-    EditLastname.removeAttribute("value");
-    var EditTel = document.getElementById('formTelephone');
-    EditTel.removeAttribute("value");
-    var EditEmail = document.getElementById('formEmail');
-    EditEmail.removeAttribute("value");
+
+    location.reload()
 }
 
 window.onclick = function(event) {
@@ -75,7 +77,7 @@ window.onclick = function(event) {
         modal.style.display = "none";
         closeModal();
     }
-}
+};
 
 //Телефонная книга
 function checkStorageForContacts(){
@@ -92,18 +94,22 @@ function checkStorageForContacts(){
 function saveContact(form){
     var contacts = JSON.parse(localStorage.getItem('contacts'));
     if(contacts == null){
+
         var contacts = [ ];
     }
     var contact = { };
     contact.name = form.name.value;
     contact.lastname = form.lastname.value;
     contact.telephone = form.telephone.value;
+    contact.telephone1 = form.telephone1.value;
+    contact.telephone2 = form.telephone2.value;
+    contact.telephone3 = form.telephone3.value;
+    contact.telephone4 = form.telephone4.value;
     contact.email = form.email.value;
+    contact.email1 = form.email1.value;
+    contact.email2 = form.email2.value;
     contacts.push(contact);
-
-
     contacts.sort(compare);
-
     localStorage.setItem('contacts', JSON.stringify(contacts));
 }
 
@@ -144,7 +150,6 @@ function editContact(editbtn) {
     SaveEditBtn.style.display = "block";
 
 
-
     var addSaveBtn = document.getElementById('addSave');
     addSaveBtn.style.display = "none";
 
@@ -155,8 +160,76 @@ function editContact(editbtn) {
     EditLastname.value = contact.lastname;
     var EditTel = document.getElementById('formTelephone');
     EditTel.value = contact.telephone;
+    var EditTel1 = document.getElementById('formTelephone1');
+    EditTel1.value = contact.telephone1;
+    var EditTel2 = document.getElementById('formTelephone2');
+    EditTel2.value = contact.telephone2;
+    var EditTel3 = document.getElementById('formTelephone3');
+    EditTel3.value = contact.telephone3;
+    var EditTel4 = document.getElementById('formTelephone4');
+    EditTel4.value = contact.telephone4;
     var EditEmail = document.getElementById('formEmail');
     EditEmail.value = contact.email;
+    var EditEmail1 = document.getElementById('formEmail1');
+    EditEmail1.value = contact.email1;
+    var EditEmail2 = document.getElementById('formEmail2');
+    EditEmail2.value = contact.email2;
+
+
+
+
+        if (contact.telephone1 !== "null") {
+            document.getElementById("tel_field1").style.display = "block";
+            document.getElementById("plus_tel0").style.display = "none"
+
+        }
+        else {
+            document.getElementById("tel_field1").style.display = "none";
+        }
+
+        if (contact.telephone2 !== "null") {
+            document.getElementById("tel_field2").style.display = "block";
+            document.getElementById("plus_tel1").style.display = "none"
+
+        }
+        else {
+            document.getElementById("tel_field2").style.display = "none";
+        }
+
+        if (contact.telephone3 !== "null") {
+            document.getElementById("tel_field3").style.display = "block";
+            document.getElementById("plus_tel2").style.display = "none"
+
+        }
+        else {
+            document.getElementById("tel_field3").style.display = "none"
+        }
+
+        if (contact.telephone4 !== "null") {
+            document.getElementById("tel_field4").style.display = "block";
+            document.getElementById("plus_tel3").style.display = "none"
+
+        }
+        else {
+            document.getElementById("tel_field4").style.display = "none"
+        }
+        if (contact.email1 !== "null@null.null") {
+            document.getElementById("email_field1").style.display = "block";
+            document.getElementById("plus_email0").style.display = "none"
+
+        }
+        else {
+            document.getElementById("email_field1").style.display = "none"
+        }
+
+        if (contact.email2 !== "null@null.null") {
+            document.getElementById("email_field2").style.display = "block";
+            document.getElementById("plus_email1").style.display = "none"
+
+        }
+        else {
+            document.getElementById("email_field2").style.display = "none"
+        }
 
 
 
@@ -165,20 +238,27 @@ function editContact(editbtn) {
         contact.name = EditName.value;
         contact.lastname = EditLastname.value;
         contact.telephone = EditTel.value;
+        contact.telephone1 = EditTel1.value;
+        contact.telephone2 = EditTel2.value;
+        contact.telephone3 = EditTel3.value;
+        contact.telephone4 = EditTel4.value;
         contact.email = EditEmail.value;
+        contact.email1 = EditEmail1.value;
+        contact.email2 = EditEmail2.value;
 
-        if((contact.name !== "") && (contact.lastname !== "") && (contact.telephone !== "") && (contact.email !== "")){
+        if((contact.name !== "") && (contact.lastname !== "") && (contact.telephone !== "") && (contact.email !== "")
+            && (contact.telephone1 !== "") && (contact.telephone2 !== "") && (contact.telephone3 !== "") &&
+            (contact.telephone4 !== "") && (contact.email1 !== "") && (contact.email2 !== "")){
             contacts.sort(compare);
             localStorage.setItem('contacts', JSON.stringify(contacts));
 
-            document.getElementById("fullname-"+id).innerHTML = contact.name + ' ' + contact.lastname;
-            document.getElementById("tel_card-"+id).value = contact.telephone;
-
-            document.getElementById("email_card-"+id).value = contact.email;
+            // document.getElementById("fullname-"+id).innerHTML = contact.name + ' ' + contact.lastname;
+            // document.getElementById("tel_card-"+id).value = contact.telephone;
+            // document.getElementById("email_card-"+id).value = contact.email;
 
 
             closeModal();
-            location.reload()
+            // location.reload()
         }
     }
 }
@@ -188,7 +268,6 @@ function fetchContacts(){
     contacts = JSON.parse(localStorage.getItem('contacts'));
     var divContacts = document.getElementById("contacts");
     for(var i = 0; i < contacts.length; i++){
-
         var divContact = document.createElement('div');
         divContact.id = "contact-" + i;
         divContact.className = "contact";
@@ -203,16 +282,31 @@ function fetchContacts(){
         str += '<button id="'+i+'"  onclick="editContact(this)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></button>';
         str += '<div class="card_content"><form>';
         str += '<p><i class="fa fa-mobile" aria-hidden="true"></i>';
-        str += '<input id="tel_card-'+i+'"  type="tel" value="' + contacts[i].telephone + '" readonly>';
-        str += '<button class="addfieldbtn" id="add_telfield-'+ i +'"><i class="fa fa-plus" aria-hidden="true"></i>';
-        str += '</button></p><p><i class="fa fa-envelope" aria-hidden="true"></i></i>';
-        str += '<input id="email_card-'+i+'" type="email" value="' + contacts[i].email + '" readonly>';
-        str += '<button class="addfieldbtn" id="add_emailfield-'+ i +'"><i class="fa fa-plus" aria-hidden="true"></i>';
-        str += '</button></p><p><input class="save_btn" id="save_btn-'+ i +'" type="button" value="Save">';
+        str += '<input id="tel_card-'+i+'"  type="tel" value="' + contacts[i].telephone + '" readonly></p>';
+
+            str += '<p class="tel_block" id="tel_block1'+i+'"><i class="fa fa-mobile" aria-hidden="true"></i>';
+            str += '<input id="tel_card1-'+i+'"  type="tel" value="' + contacts[i].telephone1 +'" readonly></p>';
+            str += '<p class="tel_block" id="tel_block2'+i+'"><i class="fa fa-mobile" aria-hidden="true"></i>';
+            str += '<input id="tel_card2-'+i+'"  type="tel" value="' + contacts[i].telephone2 +'" readonly></p>';
+            str += '<p class="tel_block" id="tel_block3'+i+'"><i class="fa fa-mobile" aria-hidden="true"></i>';
+            str += '<input id="tel_card3-'+i+'"  type="tel" value="' + contacts[i].telephone3 +'" readonly></p>';
+            str += '<p class="tel_block" id="tel_block4'+i+'"><i class="fa fa-mobile" aria-hidden="true"></i>';
+            str += '<input id="tel_card4-'+i+'"  type="tel" value="' + contacts[i].telephone4 +'" readonly></p>';
+
+        str += '<p><i class="fa fa-envelope" aria-hidden="true"></i></i>';
+        str += '<input id="email_card-'+i+'" type="email" value="' + contacts[i].email + '" readonly></p>';
+
+            str += '<p class="email_block" id="email_block1'+i+'"><i class="fa fa-envelope" aria-hidden="true"></i></i>';
+            str += '<input id="email_card1-'+i+'" type="email" value="' + contacts[i].email1 + '" readonly></p>';
+            str += '<p class="email_block" id="email_block2'+i+'"><i class="fa fa-envelope" aria-hidden="true"></i></i>';
+            str += '<input id="email_card2-'+i+'" type="email" value="' + contacts[i].email2 + '" readonly></p>';
+
+        str += '<p><input class="save_btn" id="save_btn-'+ i +'" type="button" value="Save">';
         str += '<input class="unsave_btn" id="unsave_btn-'+i+'" type="button" value="Close"></p>';
         str += '</form></div></div>';
         divContact.innerHTML += str;
     }
+    unHiddenExtraFields();
     accordion();
 }
 
@@ -261,6 +355,117 @@ function search() {
         searchField.value = '';
     }
 }
+
+
+    //Plusiki
+
+
+document.getElementById("plus_tel0").onclick = function plusTel() {
+    document.getElementById("tel_field1").style.display = "block";
+    document.getElementById("formTelephone1").value = "";
+    document.getElementById("formTelephone1").setAttribute("required", "true");
+    document.getElementById("plus_tel0").style.display = "none"
+};
+document.getElementById("plus_tel1").onclick = function plusTel1() {
+    document.getElementById("tel_field2").style.display = "block";
+    document.getElementById("formTelephone2").value = "";
+    document.getElementById("formTelephone2").setAttribute("required", "true");
+    document.getElementById("plus_tel1").style.display = "none"
+};
+document.getElementById("plus_tel2").onclick = function plusTel2() {
+    document.getElementById("tel_field3").style.display = "block";
+    document.getElementById("formTelephone3").value = "";
+    document.getElementById("formTelephone3").setAttribute("required", "true");
+    document.getElementById("plus_tel2").style.display = "none"
+};
+document.getElementById("plus_tel3").onclick = function plusTel3() {
+    document.getElementById("tel_field4").style.display = "block";
+    document.getElementById("formTelephone4").value = "";
+    document.getElementById("formTelephone4").setAttribute("required", "true");
+    document.getElementById("plus_tel3").style.display = "none"
+};
+document.getElementById("plus_email0").onclick = function plusEmail() {
+    document.getElementById("email_field1").style.display = "block";
+    document.getElementById("formEmail1").value = "";
+    document.getElementById("formEmail1").setAttribute("required", "true");
+    document.getElementById("plus_email0").style.display = "none"
+};
+document.getElementById("plus_email1").onclick = function plusEmail() {
+    document.getElementById("email_field2").style.display = "block";
+    document.getElementById("formEmail2").value = "";
+    document.getElementById("formEmail2").setAttribute("required", "true");
+    document.getElementById("plus_email1").style.display = "none"
+};
+
+
+
+
+
+function unHiddenExtraFields() {
+
+
+            var EditTel1 = document.getElementById('formTelephone1');
+            var EditTel2 = document.getElementById('formTelephone2');
+            var EditTel3 = document.getElementById('formTelephone3');
+            var EditTel4 = document.getElementById('formTelephone4');
+            var EditEmail1 = document.getElementById('formEmail1');
+            var EditEmail2 = document.getElementById('formEmail2');
+            var telBlock1 = document.getElementById('tel_block1');
+            var telBlock2 = document.getElementById('tel_block2');
+            var telBlock3 = document.getElementById('tel_block3');
+            var telBlock4 = document.getElementById('tel_block4');
+            var emailBlock1 = document.getElementById('email_block1');
+            var emailBlock2 = document.getElementById('email_block2');
+
+
+            var contacts = JSON.parse(localStorage.getItem('contacts'));
+
+            for (i = 0; i < contacts.length; i++) {
+
+                if (contacts[i].telephone1 !== "null") {
+                    document.getElementById("tel_block1"+i).style.display = "block"
+                }
+                else {
+                    document.getElementById("tel_block1"+i).style.display = ""
+                }
+
+                if (contacts[i].telephone2 !== "null") {
+                    document.getElementById("tel_block2"+i).style.display = "block"
+                }
+                else {
+                    document.getElementById("tel_block2"+i).style.display = ""
+                }
+
+                if (contacts[i].telephone3 !== "null") {
+                    document.getElementById("tel_block3"+i).style.display = "block"
+                }
+                else {
+                    document.getElementById("tel_block3"+i).style.display = ""
+                }
+
+                if (contacts[i].telephone4 !== "null") {
+                    document.getElementById("tel_block4"+i).style.display = "block"
+                }
+                else {
+                    document.getElementById("tel_block4"+i).style.display = ""
+                }
+                if (contacts[i].email1 !== "null@null.null") {
+                    document.getElementById("email_block1"+i).style.display = "block"
+                }
+                else {
+                    document.getElementById("email_block1"+i).style.display = ""
+                }
+
+                if (contacts[i].email2 !== "null@null.null") {
+                    document.getElementById("email_block2"+i).style.display = "block"
+                }
+                else {
+                    document.getElementById("email_block1"+i).style.display = ""
+                }
+            }
+        }
+
+
 
 
 

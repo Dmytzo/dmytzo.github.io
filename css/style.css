@@ -298,6 +298,12 @@ input {
     display: none;
 }
 
+.tel_block,
+.email_block {
+    display: none;
+}
+
+
 
 
 
