@@ -108,6 +108,7 @@ function removeContact(contact){
             var id = contact.id;
             contacts = JSON.parse(localStorage.getItem("contacts"));
             contacts.splice(id, 1);
+            location.reload();
             if (contacts.length == 0) {
                 document.getElementById("noContacts").style.display="block";
             }

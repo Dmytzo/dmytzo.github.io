@@ -307,6 +307,10 @@ button {
     vertical-align: top;
 }
 
+.emails_form input[type=email]{
+    width: 330px;
+}
+
 .modal_remove_content {
     border: 2px solid #F9B341;
     padding-top: 25px;
@@ -471,10 +475,6 @@ and (max-device-width : 720px){
     #no_res {
         font-size: 49px;
     }
-
-
-
-
 }
 
 
