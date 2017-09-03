@@ -1,54 +1,52 @@
-//Аккордион
+//Accordion
 function accordion () {
-var title = document.getElementsByClassName('contact_name'),
-    cont = document.getElementsByClassName('contact_card');
+var title = document.getElementsByClassName("contact_name"),
+    cont = document.getElementsByClassName("contact_card");
 
     for (var q = 0; q < title.length; q++) {
         var curTitle = title[q];
-        title[q].addEventListener('click', function() {
-            var classes = this.getAttribute('class'),
-                newClasses = '',
-                classesArr = classes.split(' '),
+        title[q].addEventListener("click", function() {
+            var classes = this.getAttribute("class"),
+                newClasses = "",
+                classesArr = classes.split(" "),
                 newClassesArr = classes.split(' ');
             for (var j = 0; j < classesArr.length; j++) {
-                if (classesArr[j] == 'active') {
+                if (classesArr[j] == "active") {
                     classesArr.splice([j], 1);
                 }
             }
             if (classesArr.length === newClassesArr.length) {
-                classesArr.push('active');
-
-                newClasses = classesArr.join(' ');
-            } else {
-
-                newClasses = classesArr.join(' ');
+                classesArr.push("active");
+                newClasses = classesArr.join(" ");
+            }
+            else {
+                newClasses = classesArr.join(" ");
             }
 
             for (var l = 0; l < title.length; l++) {
-                oldClasses = title[l].getAttribute('class');
-                oldClassesArr = oldClasses.split(' ');
+                oldClasses = title[l].getAttribute("class");
+                oldClassesArr = oldClasses.split(" ");
                 for (var k = 0; k < oldClassesArr.length; k++) {
-                    if (oldClassesArr[k] == 'active') {
+                    if (oldClassesArr[k] == "active") {
                         oldClassesArr.splice([k], 1);
                     }
-                    oldClasses = oldClassesArr.join(' ');
-                    title[l].setAttribute('class', oldClasses);
+                    oldClasses = oldClassesArr.join(" ");
+                    title[l].setAttribute("class", oldClasses);
                 }
             }
-            this.setAttribute('class', newClasses);
+            this.setAttribute("class", newClasses);
         })
     }
 }
 
-//Поп-ап для создания контакта
+//Pop up
 
 function addBtnContact() {
     document.forms["formAddContact"].reset();
-    var FormAdd = document.getElementById('formAddContact');
+    var FormAdd = document.getElementById("formAddContact");
     FormAdd.setAttribute("onsubmit", "saveContact(this)");
-    var modal = document.getElementById('myModal');
+    var modal = document.getElementById("myModal");
     modal.style.display = "block";
-
     var addSaveBtn = document.getElementById('addSave');
     addSaveBtn.style.display = "block";
     var SaveEditBtn = document.getElementById('addSaveEdit');
@@ -56,33 +54,23 @@ function addBtnContact() {
 }
 
 function closeModal() {
-    modal = document.getElementById('myModal');
+    modal = document.getElementById("myModal");
     modal.style.display = "none";
-    // var EditName = document.getElementById('formName');
-    // EditName.removeAttribute("value");
-    // var EditLastname = document.getElementById('formLastname');
-    // EditLastname.removeAttribute("value");
-    // var EditTel = document.getElementById('formTelephone');
-    // EditTel.removeAttribute("value");
-    // var EditEmail = document.getElementById('formEmail');
-    // EditEmail.removeAttribute("value");
-
-
     location.reload()
 }
 
 window.onclick = function(event) {
-    modal = document.getElementById('myModal');
+    modal = document.getElementById("myModal");
     if (event.target == modal){
         modal.style.display = "none";
         closeModal();
     }
 };
 
-//Телефонная книга
+//Phonebook
 function checkStorageForContacts(){
     var contacts = [ ];
-    contacts = JSON.parse(localStorage.getItem('contacts'));
+    contacts = JSON.parse(localStorage.getItem("contacts"));
     if((contacts == null) || (contacts.length == 0)){
         document.getElementById("noContacts").style.display="block";
     }
@@ -92,9 +80,8 @@ function checkStorageForContacts(){
 }
 
 function saveContact(form){
-    var contacts = JSON.parse(localStorage.getItem('contacts'));
+    var contacts = JSON.parse(localStorage.getItem("contacts"));
     if(contacts == null){
-
         var contacts = [ ];
     }
     var contact = { };
@@ -110,50 +97,43 @@ function saveContact(form){
     contact.email2 = form.email2.value;
     contacts.push(contact);
     contacts.sort(compare);
-    localStorage.setItem('contacts', JSON.stringify(contacts));
+    localStorage.setItem("contacts", JSON.stringify(contacts));
 }
 
 
 function removeContact(contact){
-        var modal = document.getElementById('myModalRemove');
+        var modal = document.getElementById("myModalRemove");
         modal.style.display = "block";
-        document.getElementById('remove_yes').onclick = function () {
+        document.getElementById("remove_yes").onclick = function () {
             var id = contact.id;
-            contacts = JSON.parse(localStorage.getItem('contacts'));
+            contacts = JSON.parse(localStorage.getItem("contacts"));
             contacts.splice(id, 1);
             if (contacts.length == 0) {
                 document.getElementById("noContacts").style.display="block";
             }
-            localStorage.setItem('contacts', JSON.stringify(contacts));
-            var contacts = document.getElementById('contact-' +id);
+            localStorage.setItem("contacts", JSON.stringify(contacts));
+            var contacts = document.getElementById("contact-" +id);
             contacts.parentNode.removeChild(contacts);
             modal.style.display = "none";
         };
-        document.getElementById('remove_no').onclick = function () {
-            modal = document.getElementById('myModalRemove');
+        document.getElementById("remove_no").onclick = function () {
+            modal = document.getElementById("myModalRemove");
             modal.style.display = "none";
         };
 }
 
 function editContact(editbtn) {
-    var modal = document.getElementById('myModal');
+    var modal = document.getElementById("myModal");
     modal.style.display = "block";
-
     var id = editbtn.id;
-    var contacts = JSON.parse(localStorage.getItem('contacts'));
+    var contacts = JSON.parse(localStorage.getItem("contacts"));
     var contact = contacts[id];
-
-    var FormAdd = document.getElementById('formAddContact');
+    var FormAdd = document.getElementById("formAddContact");
     FormAdd.removeAttribute("onsubmit");
-
-    var SaveEditBtn = document.getElementById('addSaveEdit');
+    var SaveEditBtn = document.getElementById("addSaveEdit");
     SaveEditBtn.style.display = "block";
-
-
-    var addSaveBtn = document.getElementById('addSave');
+    var addSaveBtn = document.getElementById("addSave");
     addSaveBtn.style.display = "none";
-
-
     var EditName = document.getElementById('formName');
     EditName.value = contact.name;
     var EditLastname = document.getElementById('formLastname');
@@ -175,46 +155,26 @@ function editContact(editbtn) {
     var EditEmail2 = document.getElementById('formEmail2');
     EditEmail2.value = contact.email2;
 
-
-
-
-
-
         if (contact.telephone1 !== "null") {
             document.getElementById("tel_field1").style.display = "block";
-
-            //
-            // document.getElementById("plus_tel0").style.display = "none"
         }
         else {
             document.getElementById("tel_field1").style.display = "none";
         }
-
         if (contact.telephone2 !== "null") {
             document.getElementById("tel_field2").style.display = "block";
-            //
-            // document.getElementById("plus_tel1").style.display = "none"
-
         }
         else {
             document.getElementById("tel_field2").style.display = "none";
         }
-
         if (contact.telephone3 !== "null") {
             document.getElementById("tel_field3").style.display = "block";
-            //
-            // document.getElementById("plus_tel2").style.display = "none"
-
         }
         else {
             document.getElementById("tel_field3").style.display = "none"
         }
-
         if (contact.telephone4 !== "null") {
             document.getElementById("tel_field4").style.display = "block";
-            //
-            // document.getElementById("plus_tel3").style.display = "none"
-
         }
         else {
             document.getElementById("tel_field4").style.display = "none"
@@ -222,23 +182,16 @@ function editContact(editbtn) {
         if (contact.email1 !== "null@null.null") {
             document.getElementById("email_field1").style.display = "block";
             document.getElementById("plus_email0").style.display = "none"
-
         }
         else {
             document.getElementById("email_field1").style.display = "none"
         }
-
         if (contact.email2 !== "null@null.null") {
             document.getElementById("email_field2").style.display = "block";
         }
         else {
             document.getElementById("email_field2").style.display = "none"
         }
-
-
-
-
-
 
     SaveEditBtn.onclick = function () {
         var contact = contacts[id];
@@ -257,29 +210,21 @@ function editContact(editbtn) {
             && (contact.telephone1 !== "") && (contact.telephone2 !== "") && (contact.telephone3 !== "") &&
             (contact.telephone4 !== "") && (contact.email1 !== "") && (contact.email2 !== "")){
             contacts.sort(compare);
-            localStorage.setItem('contacts', JSON.stringify(contacts));
-
-            // document.getElementById("fullname-"+id).innerHTML = contact.name + ' ' + contact.lastname;
-            // document.getElementById("tel_card-"+id).value = contact.telephone;
-            // document.getElementById("email_card-"+id).value = contact.email;
-
-
+            localStorage.setItem("contacts", JSON.stringify(contacts));
             closeModal();
-            // location.reload()
         }
     }
 }
 
 function fetchContacts(){
     var contacts = [ ];
-    contacts = JSON.parse(localStorage.getItem('contacts'));
+    contacts = JSON.parse(localStorage.getItem("contacts"));
     var divContacts = document.getElementById("contacts");
     for(var i = 0; i < contacts.length; i++){
-        var divContact = document.createElement('div');
+        var divContact = document.createElement("div");
         divContact.id = "contact-" + i;
         divContact.className = "contact";
         divContacts.appendChild(divContact);
-
         var str =  '<div id="contact_name'+i+'" class="contact_name">';
         str += '<span id="fullname-'+i+'">' + contacts[i].name + ' ' + contacts[i].lastname + '</span><form class="for_edit">';
         // str += '<span id="fullname-'+i+'"><tag id="name'+i+'">'+contacts[i].name+' </tag><tag id="lastname'+i+'">'+contacts[i].lastname+'</tag></span><form class="for_edit">';
@@ -291,25 +236,20 @@ function fetchContacts(){
         str += '<div class="card_content"><form><div class="tels">';
         str += '<p><i class="fa fa-mobile" aria-hidden="true"></i>';
         str += '<input id="tel_card-'+i+'"  type="tel" value="' + contacts[i].telephone + '" readonly></p>';
-
-            str += '<p class="tel_block" id="tel_block1'+i+'"><i class="fa fa-mobile" aria-hidden="true"></i>';
-            str += '<input id="tel_card1-'+i+'"  type="tel" value="' + contacts[i].telephone1 +'" readonly></p>';
-            str += '<p class="tel_block" id="tel_block2'+i+'"><i class="fa fa-mobile" aria-hidden="true"></i>';
-            str += '<input id="tel_card2-'+i+'"  type="tel" value="' + contacts[i].telephone2 +'" readonly></p>';
-            str += '<p class="tel_block" id="tel_block3'+i+'"><i class="fa fa-mobile" aria-hidden="true"></i>';
-            str += '<input id="tel_card3-'+i+'"  type="tel" value="' + contacts[i].telephone3 +'" readonly></p>';
-            str += '<p class="tel_block" id="tel_block4'+i+'"><i class="fa fa-mobile" aria-hidden="true"></i>';
-            str += '<input id="tel_card4-'+i+'"  type="tel" value="' + contacts[i].telephone4 +'" readonly></p></div>';
-
+        str += '<p class="tel_block" id="tel_block1'+i+'"><i class="fa fa-mobile" aria-hidden="true"></i>';
+        str += '<input id="tel_card1-'+i+'"  type="tel" value="' + contacts[i].telephone1 +'" readonly></p>';
+        str += '<p class="tel_block" id="tel_block2'+i+'"><i class="fa fa-mobile" aria-hidden="true"></i>';
+        str += '<input id="tel_card2-'+i+'"  type="tel" value="' + contacts[i].telephone2 +'" readonly></p>';
+        str += '<p class="tel_block" id="tel_block3'+i+'"><i class="fa fa-mobile" aria-hidden="true"></i>';
+        str += '<input id="tel_card3-'+i+'"  type="tel" value="' + contacts[i].telephone3 +'" readonly></p>';
+        str += '<p class="tel_block" id="tel_block4'+i+'"><i class="fa fa-mobile" aria-hidden="true"></i>';
+        str += '<input id="tel_card4-'+i+'"  type="tel" value="' + contacts[i].telephone4 +'" readonly></p></div>';
         str += '<div class="emails"><p><i class="fa fa-envelope" aria-hidden="true"></i></i>';
         str += '<input id="email_card-'+i+'" type="email" value="' + contacts[i].email + '" readonly></p>';
-
-            str += '<p class="email_block" id="email_block1'+i+'"><i class="fa fa-envelope" aria-hidden="true"></i></i>';
-            str += '<input id="email_card1-'+i+'" type="email" value="' + contacts[i].email1 + '" readonly></p>';
-            str += '<p class="email_block" id="email_block2'+i+'"><i class="fa fa-envelope" aria-hidden="true"></i></i>';
-            str += '<input id="email_card2-'+i+'" type="email" value="' + contacts[i].email2 + '" readonly></p></div>';
-
-
+        str += '<p class="email_block" id="email_block1'+i+'"><i class="fa fa-envelope" aria-hidden="true"></i></i>';
+        str += '<input id="email_card1-'+i+'" type="email" value="' + contacts[i].email1 + '" readonly></p>';
+        str += '<p class="email_block" id="email_block2'+i+'"><i class="fa fa-envelope" aria-hidden="true"></i></i>';
+        str += '<input id="email_card2-'+i+'" type="email" value="' + contacts[i].email2 + '" readonly></p></div>';
         str += '</form></div></div>';
         divContact.innerHTML += str;
     }
@@ -317,14 +257,9 @@ function fetchContacts(){
     accordion();
 }
 
-
-
-
-
-
 //Sorting
 function compare(a,b) {
-    var contacts = JSON.parse(localStorage.getItem('contacts'));
+    var contacts = JSON.parse(localStorage.getItem("contacts"));
     if (a.name < b.name)
         return -1;
     if (a.name > b.name)
@@ -334,25 +269,19 @@ function compare(a,b) {
 
 
 // Searching
-
-
 function search() {
     var contacts = JSON.parse(localStorage.getItem('contacts'));
     var searchField = document.getElementById("search_field");
     var resetBtn = document.getElementById("reset");
     for (i = 0; i < contacts.length; i++) {
         var filter = searchField.value.toUpperCase();
-        // var contact = document.getElementById("contact-" + i)[0];
-
 
             if ((contacts[i].name.toUpperCase().indexOf(filter) > -1) ||
                 (contacts[i].lastname.toUpperCase().indexOf(filter) > -1)) {
                 document.getElementById("contact-" + i).style.display = "";
                 var noRes = 1;
-                // alert(contacts[i].name +' true');
             } else {
                 document.getElementById("contact-" + i).style.display = "none";
-                // alert(contacts[i].name +' false');
             }
 
         if(noRes == 1){
@@ -362,29 +291,16 @@ function search() {
             document.getElementById("no_res").style.display = "block"
         }
 
-
-            // if(contacts[i].name[0].toUpperCase().indexOf(filter) > -1){
-            //     document.getElementById("name" + i).style.background = "orange"
-            // }
-            // if(contacts[i].lastname[0].toUpperCase().indexOf(filter) > -1) {
-            //     document.getElementById("lastname" + i).style.background = "orange"
-            // }
-
-        }
+    }
     resetBtn.onclick = function () {
         searchField.value = '';
     }
 }
 
 
-    //Plusiki
-
-// Variant 2 for plusiki tel
-
-
+//Add field
 
 document.getElementById("plus_tel0").onclick = function plusTel(){
-
     var q = 1;
         if(document.getElementById("tel_field1").style.display === "block"){
             q = 2;
@@ -399,13 +315,10 @@ document.getElementById("plus_tel0").onclick = function plusTel(){
         if(document.getElementById("tel_field4").style.display === "block"){
             q = 1;
         }
-
     document.getElementById("tel_field"+q).style.display = "block";
     document.getElementById("formTelephone"+q).value = "";
     document.getElementById("formTelephone"+q).setAttribute("required", "true");
 };
-
-
 
 document.getElementById("plus_email0").onclick = function plusEmail(){
 
@@ -417,236 +330,155 @@ document.getElementById("plus_email0").onclick = function plusEmail(){
         if(document.getElementById("email_field2").style.display === "block"){
             w = 1;
         }
-
     document.getElementById("email_field"+w).style.display = "block";
     document.getElementById("formEmail"+w).value = "";
     document.getElementById("formEmail"+w).setAttribute("required", "true");
 };
 
 
-//Minusiki
-
-
-
-
+//Remove field
 function minusTel1() {
     document.getElementById("formTelephone1").value = "null";
     document.getElementById("tel_field1").style.display = "none";
     document.getElementById("plus_tel0").style.display = "inline-block";
-
     var d = document.getElementById('tel_field1');
     d.parentNode.appendChild(d);
-
-
     document.getElementById("tel_field1").id = "tel_field4";
     document.getElementById("minus_tel1").setAttribute("onclick", "minusTel4()");
     document.getElementById("minus_tel1").id = "minus_tel4";
     document.getElementById("formTelephone1").id = "formTelephone4";
-
-
     document.getElementById("tel_field2").id = "tel_field1";
     document.getElementById("minus_tel2").setAttribute("onclick", "minusTel1()");
     document.getElementById("minus_tel2").id = "minus_tel1";
     document.getElementById("formTelephone2").id = "formTelephone1";
-
-
     document.getElementById("tel_field3").id = "tel_field2";
     document.getElementById("minus_tel3").setAttribute("onclick", "minusTel2()");
     document.getElementById("minus_tel3").id = "minus_tel2";
     document.getElementById("formTelephone3").id = "formTelephone2";
-
-
     document.getElementById("tel_field4").id = "tel_field3";
     document.getElementById("minus_tel4").setAttribute("onclick", "minusTel3()");
     document.getElementById("minus_tel4").id = "minus_tel3";
     document.getElementById("formTelephone4").id = "formTelephone3";
-
-
-
-
-
-};
-// document.getElementById("minus_tel2").onclick =
-    function minusTel2() {
+}
+function minusTel2() {
     document.getElementById("formTelephone2").value = "null";
     document.getElementById("tel_field2").style.display = "none";
     document.getElementById("minus_tel1").style.display = "inline-block";
     document.getElementById("plus_tel0").style.display = "inline-block";
-
-
     var d = document.getElementById('tel_field2');
     d.parentNode.appendChild(d);
-
     document.getElementById("tel_field2").id = "tel_field4";
     document.getElementById("minus_tel2").setAttribute("onclick", "minusTel4()");
     document.getElementById("minus_tel2").id = "minus_tel4";
     document.getElementById("formTelephone2").id = "formTelephone4";
-
-
     document.getElementById("tel_field3").id = "tel_field2";
     document.getElementById("minus_tel3").setAttribute("onclick", "minusTel2()");
     document.getElementById("minus_tel3").id = "minus_tel2";
     document.getElementById("formTelephone3").id = "formTelephone2";
-
-
     document.getElementById("tel_field4").id = "tel_field3";
     document.getElementById("minus_tel4").setAttribute("onclick", "minusTel3()");
     document.getElementById("minus_tel4").id = "minus_tel3";
     document.getElementById("formTelephone4").id = "formTelephone3";
-
-
-
-
-
-
-
-};
-// document.getElementById("minus_tel3").onclick =
+}
     function minusTel3() {
     document.getElementById("formTelephone3").value = "null";
     document.getElementById("tel_field3").style.display = "none";
     document.getElementById("minus_tel2").style.display = "inline-block";
     document.getElementById("plus_tel0").style.display = "inline-block";
-
     var d = document.getElementById('tel_field3');
     d.parentNode.appendChild(d);
-
-
     document.getElementById("tel_field3").id = "tel_field4";
     document.getElementById("minus_tel3").setAttribute("onclick", "minusTel4()");
     document.getElementById("minus_tel3").id = "minus_tel4";
     document.getElementById("formTelephone3").id = "formTelephone4";
-
-
     document.getElementById("tel_field4").id = "tel_field3";
     document.getElementById("minus_tel4").setAttribute("onclick", "minusTel3()");
     document.getElementById("minus_tel4").id = "minus_tel3";
     document.getElementById("formTelephone4").id = "formTelephone3";
-
-
-
-
-
-
-
 }
-// document.getElementById("minus_tel4").onclick =
     function minusTel4() {
     document.getElementById("formTelephone4").value = "null";
     document.getElementById("tel_field4").style.display = "none";
     document.getElementById("minus_tel3").style.display = "inline-block";
-    document.getElementById("plus_tel0").style.display = "inline-block"
-
-
+    document.getElementById("plus_tel0").style.display = "inline-block";
     var d = document.getElementById('tel_field4');
     d.parentNode.appendChild(d);
-
 }
-
-
-
-
-
-// document.getElementById("minus_email1").onclick =
-    function minusEmail1() {
+function minusEmail1() {
     document.getElementById("formEmail1").value = "null@null.null";
     document.getElementById("email_field1").style.display = "none";
-    document.getElementById("plus_email0").style.display = "inline-block"
-
-        var t = document.getElementById('email_field1');
-        t.parentNode.appendChild(t);
-
-
-        document.getElementById("email_field1").id = "email_field2";
-        document.getElementById("minus_email1").setAttribute("onclick", "minusEmail2()");
-        document.getElementById("minus_email1").id = "minus_email2";
-        document.getElementById("formEmail1").id = "formEmail2";
-
-
-        document.getElementById("email_field2").id = "email_field1";
-        document.getElementById("minus_email2").setAttribute("onclick", "minusEmail1()");
-        document.getElementById("minus_email2").id = "minus_email1";
-        document.getElementById("formEmail2").id = "formEmail1";
-
-
-
-
+    document.getElementById("plus_email0").style.display = "inline-block";
+    var t = document.getElementById('email_field1');
+    t.parentNode.appendChild(t);
+    document.getElementById("email_field1").id = "email_field2";
+    document.getElementById("minus_email1").setAttribute("onclick", "minusEmail2()");
+    document.getElementById("minus_email1").id = "minus_email2";
+    document.getElementById("formEmail1").id = "formEmail2";
+    document.getElementById("email_field2").id = "email_field1";
+    document.getElementById("minus_email2").setAttribute("onclick", "minusEmail1()");
+    document.getElementById("minus_email2").id = "minus_email1";
+    document.getElementById("formEmail2").id = "formEmail1";
 }
-// document.getElementById("minus_email2").onclick =
-    function minusEmail2() {
+function minusEmail2() {
     document.getElementById("formEmail2").value = "null@null.null";
     document.getElementById("email_field2").style.display = "none";
     document.getElementById("minus_email1").style.display = "inline-block";
     document.getElementById("plus_email1").style.display = "inline-block";
-
-        var t = document.getElementById('email_field2');
-        t.parentNode.appendChild(t);
+    var t = document.getElementById('email_field2');
+    t.parentNode.appendChild(t);
 }
 
-
-
-
-
 function unHiddenExtraFields() {
+    var EditTel1 = document.getElementById('formTelephone1');
+    var EditTel2 = document.getElementById('formTelephone2');
+    var EditTel3 = document.getElementById('formTelephone3');
+    var EditTel4 = document.getElementById('formTelephone4');
+    var EditEmail1 = document.getElementById('formEmail1');
+    var EditEmail2 = document.getElementById('formEmail2');
+    var telBlock1 = document.getElementById('tel_block1');
+    var telBlock2 = document.getElementById('tel_block2');
+    var telBlock3 = document.getElementById('tel_block3');
+    var telBlock4 = document.getElementById('tel_block4');
+    var emailBlock1 = document.getElementById('email_block1');
+    var emailBlock2 = document.getElementById('email_block2');
+    var contacts = JSON.parse(localStorage.getItem("contacts"));
 
-
-            var EditTel1 = document.getElementById('formTelephone1');
-            var EditTel2 = document.getElementById('formTelephone2');
-            var EditTel3 = document.getElementById('formTelephone3');
-            var EditTel4 = document.getElementById('formTelephone4');
-            var EditEmail1 = document.getElementById('formEmail1');
-            var EditEmail2 = document.getElementById('formEmail2');
-            var telBlock1 = document.getElementById('tel_block1');
-            var telBlock2 = document.getElementById('tel_block2');
-            var telBlock3 = document.getElementById('tel_block3');
-            var telBlock4 = document.getElementById('tel_block4');
-            var emailBlock1 = document.getElementById('email_block1');
-            var emailBlock2 = document.getElementById('email_block2');
-
-
-            var contacts = JSON.parse(localStorage.getItem('contacts'));
-
-            for (i = 0; i < contacts.length; i++) {
-
-                if (contacts[i].telephone1 !== "null") {
-                    document.getElementById("tel_block1"+i).style.display = "block"
-                }
-                else {
-                    document.getElementById("tel_block1"+i).style.display = ""
-                }
-
-                if (contacts[i].telephone2 !== "null") {
-                    document.getElementById("tel_block2"+i).style.display = "block"
-                }
-                else {
-                    document.getElementById("tel_block2"+i).style.display = ""
-                }
-
-                if (contacts[i].telephone3 !== "null") {
-                    document.getElementById("tel_block3"+i).style.display = "block"
-                }
-                else {
-                    document.getElementById("tel_block3"+i).style.display = ""
-                }
-
-                if (contacts[i].telephone4 !== "null") {
-                    document.getElementById("tel_block4"+i).style.display = "block"
-                }
-                else {
-                    document.getElementById("tel_block4"+i).style.display = ""
-                }
-                if (contacts[i].email1 !== "null@null.null") {
-                    document.getElementById("email_block1"+i).style.display = "block"
-                }
-                else {
-                    document.getElementById("email_block1"+i).style.display = ""
-                }
-
-                if (contacts[i].email2 !== "null@null.null") {
-                    document.getElementById("email_block2"+i).style.display = "block"
-                }
-                else {
-                    document.getElementById("email_block2"+i).style.display = ""
-                }
+        for (i = 0; i < contacts.length; i++){
+            if (contacts[i].telephone1 !== "null") {
+                document.getElementById("tel_block1"+i).style.display = "block"
+            }
+            else {
+                document.getElementById("tel_block1"+i).style.display = ""
+            }
+            if (contacts[i].telephone2 !== "null") {
+                document.getElementById("tel_block2"+i).style.display = "block"
+            }
+            else {
+                document.getElementById("tel_block2"+i).style.display = ""
+            }
+            if (contacts[i].telephone3 !== "null") {
+                document.getElementById("tel_block3"+i).style.display = "block"
+            }
+            else {
+                document.getElementById("tel_block3"+i).style.display = ""
+            }
+            if (contacts[i].telephone4 !== "null") {
+                document.getElementById("tel_block4"+i).style.display = "block"
+            }
+            else {
+                document.getElementById("tel_block4"+i).style.display = ""
+            }
+            if (contacts[i].email1 !== "null@null.null") {
+                document.getElementById("email_block1"+i).style.display = "block"
+            }
+            else {
+                document.getElementById("email_block1"+i).style.display = ""
+            }
+            if (contacts[i].email2 !== "null@null.null") {
+                document.getElementById("email_block2"+i).style.display = "block"
+            }
+            else {
+                document.getElementById("email_block2"+i).style.display = ""
             }
         }
+}
