@@ -152,9 +152,15 @@ header {
     margin-right: 25px;
 }
 
-input {
+input, button {
     -webkit-appearance: none;
     -moz-appearance: none;
+}
+
+button {
+    background: transparent;
+    border: none;
+    font-family: 'century gothic', sans-serif;
 }
 
 .modal {
