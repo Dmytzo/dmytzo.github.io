@@ -16,7 +16,7 @@
         <div>
             <div class="search">
                 <form>
-                    <input class="search_field" onkeyup="search()" id="search_field" type="text" placeholder="Enter name or lastname here...">
+                    <input class="search_field" value = "" onkeyup="search()" id="search_field" type="text" placeholder="Enter name or lastname here...">
                     <input class="search_btn" id="reset" type="submit" value="Reset">
                 </form>
             </div>
@@ -41,30 +41,42 @@
                             <input type="text" name="lastname" id="formLastname" placeholder="enter last name" required>
                         </div>
                         <div class="add_card">
-                            <p>
+                            <div class="tels_form">
+                             <p id="tel_field">
                                 <i class="fa fa-mobile" aria-hidden="true"></i>
                                 <input type="tel" name="telephone" id="formTelephone" required placeholder="enter phone number">
                                 <button type="button" id="plus_tel0"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                            </p>
+                             </p>
                             <p class="tel_block" id="tel_field1">
                                 <i class="fa fa-mobile" aria-hidden="true"></i>
                                 <input type="tel" name="telephone1" id="formTelephone1" value="null" placeholder="enter phone number">
-                                <button type="button" id="plus_tel1"><i class="fa fa-plus" aria-hidden="true"></i></button>
+
+                                <!--<button type="button" id="plus_tel1"><i class="fa fa-plus" aria-hidden="true"></i></button>-->
+                                <button onclick="minusTel1()" type="button" id="minus_tel1"><i class="fa fa-minus" aria-hidden="true"></i></button>
                             </p>
                             <p class="tel_block" id="tel_field2">
                                 <i class="fa fa-mobile" aria-hidden="true"></i>
                                 <input type="tel" name="telephone2" id="formTelephone2" value="null" placeholder="enter phone number">
-                                <button type="button" id="plus_tel2"><i class="fa fa-plus" aria-hidden="true"></i></button>
+
+                                <!--<button type="button" id="plus_tel2"><i class="fa fa-plus" aria-hidden="true"></i></button>-->
+                                <button onclick="minusTel2()" type="button" id="minus_tel2"><i class="fa fa-minus" aria-hidden="true"></i></button>
+
                             </p>
                             <p class="tel_block" id="tel_field3">
                                 <i class="fa fa-mobile" aria-hidden="true"></i>
                                 <input type="tel" name="telephone3" id="formTelephone3" value="null" placeholder="enter phone number">
-                                <button type="button" id="plus_tel3"><i class="fa fa-plus" aria-hidden="true"></i></button>
+
+                                <!--<button type="button" id="plus_tel3"><i class="fa fa-plus" aria-hidden="true"></i></button>-->
+                                <button onclick="minusTel3()" type="button" id="minus_tel3"><i class="fa fa-minus" aria-hidden="true"></i></button>
+
                             </p>
                             <p class="tel_block" id="tel_field4">
                                 <i class="fa fa-mobile" aria-hidden="true"></i>
                                 <input type="tel" name="telephone4" id="formTelephone4" value="null" placeholder="enter phone number">
+                                <button onclick="minusTel4()" type="button" id="minus_tel4"><i class="fa fa-minus" aria-hidden="true"></i></button>
                             </p>
+                            </div>
+                            <div class="emails_form">
                             <p>
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 <input type="email" name="email" id="formEmail" required placeholder="enter e-mail address" >
@@ -73,12 +85,16 @@
                             <p class="email_block" id="email_field1">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 <input type="email" name="email1" id="formEmail1" value="null@null.null" placeholder="enter e-mail address" >
-                                <button type="button" id="plus_email1"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                <button type="button" onclick="minusEmail1()" id="minus_email1"><i class="fa fa-minus" aria-hidden="true"></i></button>
+
                             </p>
                             <p class="email_block" id="email_field2">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 <input type="email" name="email2" id="formEmail2" value="null@null.null" placeholder="enter e-mail address" >
+                                <button type="button" onclick="minusEmail2()" id="minus_email2"><i class="fa fa-minus" aria-hidden="true"></i></button>
+
                             </p>
+                            </div>
                             <p>
                                 <input class="addSave" id="addSave" type="submit" value="Add">
                                 <input class="addSave" id="addSaveEdit" type="button" value="Save it">
@@ -89,132 +105,15 @@
             </div>
         </div>
         <div id="myModalRemove" class="modal">
-            <div class="modal-content">
+            <div class="modal-content modal_remove_content">
                 <p>Are you sure that you want to delete this contact?</p>
                 <button id="remove_yes">Yes, delete!</button>
                 <button id="remove_no">No, sorry</button>
             </div>
         </div>
         <p id="noContacts">No contacts</p>
+        <p id="no_res">No contacts were found</p>
         <div id="contacts">
-            <!--1 -->
-            <!--<div class="contact">-->
-                <!--<div class="contact_name">-->
-                    <!--<form class="for_edit">-->
-                        <!--<input class="first_name" type="text" name="firstname" value="Вася">-->
-                        <!--<input class="last_name" type="text" name="lastname" value="Пупкин">-->
-                    <!--</form>-->
-                    <!--<span>Вася Пупкин</span>-->
-                <!--</div>-->
-                <!--<div class="contact_card">-->
-                    <!--<div class="card_actions">-->
-                        <!--<button><i class="fa fa-trash-o" aria-hidden="true"></i></button>-->
-                        <!--<button><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>-->
-                    <!--</div>-->
-                    <!--<div class="card_content">-->
-                        <!--<form>-->
-                            <!--<p>-->
-                                <!--<i class="fa fa-mobile" aria-hidden="true"></i>-->
-                                <!--<input type="tel" value="+38(066)38910095" readonly>-->
-                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
-                            <!--</p>-->
-                            <!--<p>-->
-                                <!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
-                                <!--<input type="email" value="vasyapup@gmail.com" readonly>-->
-                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
-                            <!--</p>-->
-                            <!--<p>-->
-                                <!--<input class="save_btn" type="button" value="Save">-->
-                            <!--</p>-->
-                        <!--</form>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="contact">-->
-                <!--<div class="contact_name">-->
-                    <!--<span>Оля Петрова</span>-->
-                <!--</div>-->
-                <!--<div class="contact_card">-->
-                    <!--<div class="card_actions">-->
-                        <!--<button><i class="fa fa-trash-o" aria-hidden="true"></i></button>-->
-                        <!--<button><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>-->
-                    <!--</div>-->
-                    <!--<div class="card_content">-->
-                        <!--<form>-->
-                            <!--<p>-->
-                                <!--<i class="fa fa-mobile" aria-hidden="true"></i>-->
-                                <!--<input type="tel" value="+38(066)38910095" readonly>-->
-                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
-                            <!--</p>-->
-                            <!--<p>-->
-                                <!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
-                                <!--<input type="email" value="vasyapup@gmail.com" readonly>-->
-                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
-                            <!--</p>-->
-                            <!--<p>-->
-                                <!--<input class="save_btn" type="button" value="Save">-->
-                            <!--</p>-->
-                        <!--</form>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="contact">-->
-                <!--<div class="contact_name">-->
-                    <!--<span>Олег Горбенко</span>-->
-                <!--</div>-->
-                <!--<div class="contact_card">-->
-                    <!--<div class="card_actions">-->
-                        <!--<button><i class="fa fa-trash-o" aria-hidden="true"></i></button>-->
-                        <!--<button><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>-->
-                    <!--</div>-->
-                    <!--<div class="card_content">-->
-                        <!--<form>-->
-                            <!--<p>-->
-                                <!--<i class="fa fa-mobile" aria-hidden="true"></i>-->
-                                <!--<input type="tel" value="+38(066)38910095" readonly>-->
-                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
-                            <!--</p>-->
-                            <!--<p>-->
-                                <!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
-                                <!--<input type="email" value="vasyapup@gmail.com" readonly>-->
-                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
-                            <!--</p>-->
-                            <!--<p>-->
-                                <!--<input class="save_btn" type="button" value="Save">-->
-                            <!--</p>-->
-                        <!--</form>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="contact">-->
-                <!--<div class="contact_name">-->
-                    <!--<span>Маша Колодец</span>-->
-                <!--</div>-->
-                <!--<div class="contact_card">-->
-                    <!--<div class="card_actions">-->
-                        <!--<button><i class="fa fa-trash-o" aria-hidden="true"></i></button>-->
-                        <!--<button><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>-->
-                    <!--</div>-->
-                    <!--<div class="card_content">-->
-                        <!--<form>-->
-                            <!--<p>-->
-                                <!--<i class="fa fa-mobile" aria-hidden="true"></i>-->
-                                <!--<input type="tel" value="+38(066)38910095" readonly>-->
-                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
-                            <!--</p>-->
-                            <!--<p>-->
-                                <!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
-                                <!--<input type="email" value="vasyapup@gmail.com" readonly>-->
-                                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
-                            <!--</p>-->
-                            <!--<p>-->
-                                <!--<input class="save_btn" type="button" value="Save">-->
-                            <!--</p>-->
-                        <!--</form>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--1-->
         </div>
         <script src="js/main.js"></script>
     </main>
