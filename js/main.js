@@ -98,6 +98,15 @@ function saveContact(form){
     contacts.push(contact);
     contacts.sort(compare);
     localStorage.setItem("contacts", JSON.stringify(contacts));
+
+
+
+
+    //Знаю что так правильно, не успел переделать
+    // contact.telephone = [ ];
+    // for(i = 0; i < contact.telephone.length; i++){
+    //     contact.telephone[i] = form.telephone[i].value
+    // }
 }
 
 

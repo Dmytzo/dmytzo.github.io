@@ -36,37 +36,35 @@
                     <div class="add_form">
                         <div class="add_name">
                             First name<br>
-                            <input type="text" class="formField" name="name" id="formName" placeholder="enter first name" required><br>
+                            <input type="text" pattern="[A-zА-я\s]+$" title="Only letter is accepted" class="formField" name="name" id="formName" placeholder="enter first name" required><br>
                             Last name<br>
-                            <input type="text" name="lastname" id="formLastname" placeholder="enter last name" required>
+                            <input type="text" pattern="[A-zА-я\s]+$" title="Only letter is accepted" name="lastname" id="formLastname" placeholder="enter last name" required>
                         </div>
                         <div class="add_card">
                             <div class="tels_form">
                              <p id="tel_field">
                                 <i class="fa fa-mobile" aria-hidden="true"></i>
-                                <input type="tel" name="telephone" id="formTelephone" required placeholder="enter phone number">
+                                <input type="tel" pattern="[0-9]+$" title="Enter your number" minlength="6" maxlength="12" name="telephone" id="formTelephone" required placeholder="enter phone number">
                                 <button type="button" id="plus_tel0"><i class="fa fa-plus" aria-hidden="true"></i></button>
                              </p>
                             <p class="tel_block" id="tel_field1">
                                 <i class="fa fa-mobile" aria-hidden="true"></i>
-                                <input type="tel" name="telephone1" id="formTelephone1" value="null" placeholder="enter phone number">
+                                <input type="tel" pattern="[0-9]+$" title="Enter your number" minlength="6" maxlength="12" name="telephone1" id="formTelephone1" value="null" placeholder="enter phone number">
                                 <button onclick="minusTel1()" type="button" id="minus_tel1"><i class="fa fa-minus" aria-hidden="true"></i></button>
                             </p>
                             <p class="tel_block" id="tel_field2">
                                 <i class="fa fa-mobile" aria-hidden="true"></i>
-                                <input type="tel" name="telephone2" id="formTelephone2" value="null" placeholder="enter phone number">
+                                <input type="tel" pattern="[0-9]+$" title="Enter your number" minlength="6" maxlength="12" name="telephone2" id="formTelephone2" value="null" placeholder="enter phone number">
                                 <button onclick="minusTel2()" type="button" id="minus_tel2"><i class="fa fa-minus" aria-hidden="true"></i></button>
-
                             </p>
                             <p class="tel_block" id="tel_field3">
                                 <i class="fa fa-mobile" aria-hidden="true"></i>
-                                <input type="tel" name="telephone3" id="formTelephone3" value="null" placeholder="enter phone number">
+                                <input type="tel" pattern="[0-9]+$" title="Enter your number" minlength="6" maxlength="12" name="telephone3" id="formTelephone3" value="null" placeholder="enter phone number">
                                 <button onclick="minusTel3()" type="button" id="minus_tel3"><i class="fa fa-minus" aria-hidden="true"></i></button>
-
                             </p>
                             <p class="tel_block" id="tel_field4">
                                 <i class="fa fa-mobile" aria-hidden="true"></i>
-                                <input type="tel" name="telephone4" id="formTelephone4" value="null" placeholder="enter phone number">
+                                <input type="tel" pattern="[0-9]+$" title="Enter your number" minlength="6" maxlength="12" name="telephone4" id="formTelephone4" value="null" placeholder="enter phone number">
                                 <button onclick="minusTel4()" type="button" id="minus_tel4"><i class="fa fa-minus" aria-hidden="true"></i></button>
                             </p>
                             </div>
@@ -80,13 +78,11 @@
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 <input type="email" name="email1" id="formEmail1" value="null@null.null" placeholder="enter e-mail address" >
                                 <button type="button" onclick="minusEmail1()" id="minus_email1"><i class="fa fa-minus" aria-hidden="true"></i></button>
-
                             </p>
                             <p class="email_block" id="email_field2">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 <input type="email" name="email2" id="formEmail2" value="null@null.null" placeholder="enter e-mail address" >
                                 <button type="button" onclick="minusEmail2()" id="minus_email2"><i class="fa fa-minus" aria-hidden="true"></i></button>
-
                             </p>
                             </div>
                             <p>
