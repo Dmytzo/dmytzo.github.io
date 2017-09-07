@@ -79,25 +79,25 @@ function checkStorageForContacts(){
     }
 }
 
-function saveContact(form){
-    var contacts = JSON.parse(localStorage.getItem("contacts"));
-    if(contacts == null){
-        var contacts = [ ];
-    }
-    var contact = { };
-    contact.name = form.name.value;
-    contact.lastname = form.lastname.value;
-    contact.telephone = form.telephone.value;
-    contact.telephone1 = form.telephone1.value;
-    contact.telephone2 = form.telephone2.value;
-    contact.telephone3 = form.telephone3.value;
-    contact.telephone4 = form.telephone4.value;
-    contact.email = form.email.value;
-    contact.email1 = form.email1.value;
-    contact.email2 = form.email2.value;
-    contacts.push(contact);
-    contacts.sort(compare);
-    localStorage.setItem("contacts", JSON.stringify(contacts));
+function saveContact(form) {
+            var contacts = JSON.parse(localStorage.getItem("contacts"));
+            if (contacts == null) {
+                var contacts = [];
+            }
+            var contact = {};
+            contact.name = form.name.value;
+            contact.lastname = form.lastname.value;
+            contact.telephone = form.telephone.value;
+            contact.telephone1 = form.telephone1.value;
+            contact.telephone2 = form.telephone2.value;
+            contact.telephone3 = form.telephone3.value;
+            contact.telephone4 = form.telephone4.value;
+            contact.email = form.email.value;
+            contact.email1 = form.email1.value;
+            contact.email2 = form.email2.value;
+            contacts.push(contact);
+            contacts.sort(compare);
+            localStorage.setItem("contacts", JSON.stringify(contacts));
 
 
 
@@ -148,7 +148,7 @@ function editContact(editbtn) {
     EditName.value = contact.name;
     var EditLastname = document.getElementById('formLastname');
     EditLastname.value = contact.lastname;
-    var EditTel = document.getElementById('formTelephone');
+    var EditTel = document.getElementById('formTelephone0');
     EditTel.value = contact.telephone;
     var EditTel1 = document.getElementById('formTelephone1');
     EditTel1.value = contact.telephone1;
@@ -191,13 +191,13 @@ function editContact(editbtn) {
         }
         if (contact.email1 !== "null@null.null") {
             document.getElementById("email_field1").style.display = "block";
-            document.getElementById("plus_email0").style.display = "none"
         }
         else {
             document.getElementById("email_field1").style.display = "none"
         }
         if (contact.email2 !== "null@null.null") {
             document.getElementById("email_field2").style.display = "block";
+            document.getElementById("plus_email0").style.display = "none"
         }
         else {
             document.getElementById("email_field2").style.display = "none"
@@ -223,6 +223,7 @@ function editContact(editbtn) {
             localStorage.setItem("contacts", JSON.stringify(contacts));
             closeModal();
         }
+
     }
 }
 
@@ -254,7 +255,7 @@ function fetchContacts(){
         str += '<input id="tel_card3-'+i+'"  type="tel" value="' + contacts[i].telephone3 +'" readonly></p>';
         str += '<p class="tel_block" id="tel_block4'+i+'"><i class="fa fa-mobile" aria-hidden="true"></i>';
         str += '<input id="tel_card4-'+i+'"  type="tel" value="' + contacts[i].telephone4 +'" readonly></p></div>';
-        str += '<div class="emails"><p><i class="fa fa-envelope" aria-hidden="true"></i></i>';
+        str += '<div class="emails"><p /*id="email_block'+i+'"*/><i class="fa fa-envelope" aria-hidden="true"></i></i>';
         str += '<input id="email_card-'+i+'" type="email" value="' + contacts[i].email + '" readonly></p>';
         str += '<p class="email_block" id="email_block1'+i+'"><i class="fa fa-envelope" aria-hidden="true"></i></i>';
         str += '<input id="email_card1-'+i+'" type="email" value="' + contacts[i].email1 + '" readonly></p>';
@@ -331,7 +332,7 @@ document.getElementById("plus_tel0").onclick = function plusTel(){
 };
 
 document.getElementById("plus_email0").onclick = function plusEmail(){
-
+    // document.getElementById("formEmail").setAttribute("required", "true");
     var w = 1;
         if(document.getElementById("email_field1").style.display === "block"){
             document.getElementById("plus_email0").style.display = "none";
@@ -428,6 +429,8 @@ function minusEmail1() {
     document.getElementById("minus_email2").setAttribute("onclick", "minusEmail1()");
     document.getElementById("minus_email2").id = "minus_email1";
     document.getElementById("formEmail2").id = "formEmail1";
+    // document.getElementById("formEmail").removeAttribute("required");
+
 }
 function minusEmail2() {
     document.getElementById("formEmail2").value = "null@null.null";
@@ -478,6 +481,17 @@ function unHiddenExtraFields() {
             else {
                 document.getElementById("tel_block4"+i).style.display = ""
             }
+
+            //
+            // if (contacts[i].email !== "") {
+            //     document.getElementById("email_block"+i).style.display = "block"
+            // }
+            // else {
+            //     document.getElementById("email_block"+i).style.display = "none"
+            // }
+
+
+
             if (contacts[i].email1 !== "null@null.null") {
                 document.getElementById("email_block1"+i).style.display = "block"
             }
@@ -492,3 +506,48 @@ function unHiddenExtraFields() {
             }
         }
 }
+
+
+function validation(i) {
+        var telValid = [];
+    for (i = 0; i < 5; i++) {
+        telValid[i] = document.getElementById("formTelephone" + i);
+        telValid[i].setAttribute("minlength", "6");
+        telValid[i].setAttribute("maxlength", "12");
+        telValid[i].setAttribute("title", "enter 6-12 numbers");
+        var PATTERN = "^[0-9]+$";
+    }
+        telValid[0].onkeyup = function () {
+            if (!telValid[0].value.match(PATTERN)) {
+                telValid[0].value = telValid[0].value.replace(telValid[0].value.slice(-1), "");
+            }
+        };
+        telValid[1].onkeyup = function () {
+            if (!telValid[1].value.match(PATTERN)) {
+                telValid[1].value = telValid[1].value.replace(telValid[1].value.slice(-1), "");
+            }
+        };
+        telValid[2].onkeyup = function () {
+            if (!telValid[2].value.match(PATTERN)) {
+                telValid[2].value = telValid[2].value.replace(telValid[2].value.slice(-1), "");
+            }
+        };
+        telValid[3].onkeyup = function () {
+            if (!telValid[3].value.match(PATTERN)) {
+                telValid[3].value = telValid[3].value.replace(telValid[3].value.slice(-1), "");
+            }
+        };
+        telValid[4].onkeyup = function () {
+            if (!telValid[4].value.match(PATTERN)) {
+                telValid[4].value = telValid[4].value.replace(telValid[4].value.slice(-1), "");
+            }
+
+        };
+
+
+
+
+           // var PATTERN_EMAIL = "/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/";
+}
+
+validation();
