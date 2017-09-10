@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d277332d-2a44-43ca-9642-989da050efaf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,7 +14,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.444206">
+    <splitter split-orientation="horizontal" split-proportion="0.47281832">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
@@ -24,28 +23,28 @@
                 <state relative-caret-position="540">
                   <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
                   <folding>
-                    <marker date="1504475629000" expanded="true" signature="5966:5967" ph="//..." />
-                    <marker date="1504475629000" expanded="true" signature="12837:12839" ph="{...}" />
+                    <marker date="1504875009000" expanded="true" signature="5979:5980" ph="//..." />
+                    <marker date="1504875009000" expanded="true" signature="12877:12879" ph="{...}" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+          <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/css/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="363">
-                  <caret line="300" column="46" lean-forward="true" selection-start-line="300" selection-start-column="46" selection-end-line="300" selection-end-column="46" />
+                <state relative-caret-position="4500">
+                  <caret line="300" column="46" lean-forward="false" selection-start-line="300" selection-start-column="46" selection-end-line="300" selection-end-column="46" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="283">
-                  <caret line="87" column="25" lean-forward="true" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
+                <state relative-caret-position="144">
+                  <caret line="56" column="42" lean-forward="false" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
                   <folding />
                 </state>
               </provider>
@@ -58,11 +57,11 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="434">
-                  <caret line="116" column="27" lean-forward="false" selection-start-line="116" selection-start-column="27" selection-end-line="116" selection-end-column="27" />
+                <state relative-caret-position="900">
+                  <caret line="553" column="14" lean-forward="false" selection-start-line="553" selection-start-column="14" selection-end-line="553" selection-end-column="14" />
                   <folding>
-                    <marker date="1504475629000" expanded="true" signature="5966:5967" ph="//..." />
-                    <marker date="1504475629000" expanded="true" signature="12837:12839" ph="{...}" />
+                    <marker date="1504875009000" expanded="true" signature="5979:5980" ph="//..." />
+                    <marker date="1504875009000" expanded="true" signature="12877:12879" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -87,6 +86,7 @@
       <find>save</find>
       <find>button</find>
       <find>btn</find>
+      <find>formTelephone</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -101,9 +101,9 @@
         <option value="$PROJECT_DIR$/q.html" />
         <option value="$PROJECT_DIR$/Архив 2/index.html" />
         <option value="$PROJECT_DIR$/Архив 2/js/main.js" />
+        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/main.js" />
-        <option value="$PROJECT_DIR$/css/style.css" />
       </list>
     </option>
   </component>
@@ -119,7 +119,7 @@
     <option name="height" value="900" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -132,7 +132,11 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -264,11 +268,18 @@
       <workItem from="1504452580973" duration="1257000" />
       <workItem from="1504473993922" duration="1234000" />
       <workItem from="1504475562597" duration="375000" />
+      <workItem from="1504709156557" duration="13000" />
+      <workItem from="1504728212835" duration="13108000" />
+      <workItem from="1504744099043" duration="483000" />
+      <workItem from="1504822803617" duration="43000" />
+      <workItem from="1504870767874" duration="3444000" />
+      <workItem from="1504949671867" duration="115000" />
+      <workItem from="1505079922484" duration="64000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141488000" />
+    <option name="totallyTimeSpent" value="159246000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -309,8 +320,8 @@
         <state relative-caret-position="555">
           <caret line="37" column="12" lean-forward="false" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
           <folding>
-            <marker date="1504475629000" expanded="true" signature="5966:5967" ph="//..." />
-            <marker date="1504475629000" expanded="true" signature="12837:12839" ph="{...}" />
+            <marker date="1504875009000" expanded="true" signature="5979:5980" ph="//..." />
+            <marker date="1504875009000" expanded="true" signature="12877:12879" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -320,8 +331,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1504475629000" expanded="true" signature="5966:5967" ph="//..." />
-            <marker date="1504475629000" expanded="true" signature="12837:12839" ph="{...}" />
+            <marker date="1504875009000" expanded="true" signature="5979:5980" ph="//..." />
+            <marker date="1504875009000" expanded="true" signature="12877:12879" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -346,8 +357,8 @@
         <state relative-caret-position="1290">
           <caret line="86" column="23" lean-forward="false" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
           <folding>
-            <marker date="1504475629000" expanded="true" signature="5966:5967" ph="//..." />
-            <marker date="1504475629000" expanded="true" signature="12837:12839" ph="{...}" />
+            <marker date="1504875009000" expanded="true" signature="5979:5980" ph="//..." />
+            <marker date="1504875009000" expanded="true" signature="12877:12879" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -372,8 +383,8 @@
         <state relative-caret-position="1110">
           <caret line="74" column="23" lean-forward="false" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
           <folding>
-            <marker date="1504475629000" expanded="true" signature="5966:5967" ph="//..." />
-            <marker date="1504475629000" expanded="true" signature="12837:12839" ph="{...}" />
+            <marker date="1504875009000" expanded="true" signature="5979:5980" ph="//..." />
+            <marker date="1504875009000" expanded="true" signature="12877:12879" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -399,8 +410,8 @@
         <state relative-caret-position="1110">
           <caret line="74" column="23" lean-forward="true" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
           <folding>
-            <marker date="1504475629000" expanded="true" signature="5966:5967" ph="//..." />
-            <marker date="1504475629000" expanded="true" signature="12837:12839" ph="{...}" />
+            <marker date="1504875009000" expanded="true" signature="5979:5980" ph="//..." />
+            <marker date="1504875009000" expanded="true" signature="12877:12879" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -425,8 +436,8 @@
         <state relative-caret-position="2895">
           <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
           <folding>
-            <marker date="1504475629000" expanded="true" signature="5966:5967" ph="//..." />
-            <marker date="1504475629000" expanded="true" signature="12837:12839" ph="{...}" />
+            <marker date="1504875009000" expanded="true" signature="5979:5980" ph="//..." />
+            <marker date="1504875009000" expanded="true" signature="12877:12879" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -451,8 +462,8 @@
         <state relative-caret-position="2370">
           <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
           <folding>
-            <marker date="1504475629000" expanded="true" signature="5966:5967" ph="//..." />
-            <marker date="1504475629000" expanded="true" signature="12837:12839" ph="{...}" />
+            <marker date="1504875009000" expanded="true" signature="5979:5980" ph="//..." />
+            <marker date="1504875009000" expanded="true" signature="12877:12879" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -472,34 +483,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/scripts/addressbook.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="12" lean-forward="true" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/styles/addressbook.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/scripts/addressbook.js" />
+    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/index.html" />
+    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/styles/addressbook.css" />
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2040">
           <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
           <folding>
-            <marker date="1504475629000" expanded="true" signature="5966:5967" ph="//..." />
-            <marker date="1504475629000" expanded="true" signature="12837:12839" ph="{...}" />
+            <marker date="1504875009000" expanded="true" signature="5979:5980" ph="//..." />
+            <marker date="1504875009000" expanded="true" signature="12877:12879" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -519,34 +512,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/scripts/addressbook.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1515">
-          <caret line="101" column="49" lean-forward="false" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/styles/addressbook.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/scripts/addressbook.js" />
+    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/index.html" />
+    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/styles/addressbook.css" />
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2190">
           <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
           <folding>
-            <marker date="1504475629000" expanded="true" signature="5966:5967" ph="//..." />
-            <marker date="1504475629000" expanded="true" signature="12837:12839" ph="{...}" />
+            <marker date="1504875009000" expanded="true" signature="5979:5980" ph="//..." />
+            <marker date="1504875009000" expanded="true" signature="12877:12879" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -566,34 +541,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/scripts/addressbook.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1515">
-          <caret line="101" column="49" lean-forward="true" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="12" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/styles/addressbook.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/scripts/addressbook.js" />
+    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/index.html" />
+    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/styles/addressbook.css" />
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2190">
           <caret line="146" column="0" lean-forward="true" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
           <folding>
-            <marker date="1504475629000" expanded="true" signature="5966:5967" ph="//..." />
-            <marker date="1504475629000" expanded="true" signature="12837:12839" ph="{...}" />
+            <marker date="1504875009000" expanded="true" signature="5979:5980" ph="//..." />
+            <marker date="1504875009000" expanded="true" signature="12877:12879" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -601,27 +558,9 @@
     <entry file="file://$PROJECT_DIR$/js/accordeon.js" />
     <entry file="file://$USER_HOME$/Downloads/flame-address-book-gh-pages/js/app.js" />
     <entry file="file://$USER_HOME$/Downloads/flame-address-book-gh-pages/index.html" />
-    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/scripts/addressbook.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="83" column="34" lean-forward="true" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/styles/addressbook.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/scripts/addressbook.js" />
+    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/index.html" />
+    <entry file="file://$USER_HOME$/Downloads/AddressBook-master 15/styles/addressbook.css" />
     <entry file="file://$PROJECT_DIR$/css/fontawesome/font-awesome.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -640,29 +579,29 @@
     <entry file="file://$PROJECT_DIR$/Архив 2/css/style.css" />
     <entry file="file://$PROJECT_DIR$/Архив 2/index.html" />
     <entry file="file://$PROJECT_DIR$/Архив 2/js/main.js" />
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="87" column="25" lean-forward="true" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+        <state relative-caret-position="900">
+          <caret line="553" column="14" lean-forward="false" selection-start-line="553" selection-start-column="14" selection-end-line="553" selection-end-column="14" />
           <folding>
-            <marker date="1504475629000" expanded="true" signature="5966:5967" ph="//..." />
-            <marker date="1504475629000" expanded="true" signature="12837:12839" ph="{...}" />
+            <marker date="1504875009000" expanded="true" signature="5979:5980" ph="//..." />
+            <marker date="1504875009000" expanded="true" signature="12877:12879" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="300" column="46" lean-forward="true" selection-start-line="300" selection-start-column="46" selection-end-line="300" selection-end-column="46" />
+        <state relative-caret-position="4500">
+          <caret line="300" column="46" lean-forward="false" selection-start-line="300" selection-start-column="46" selection-end-line="300" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="56" column="42" lean-forward="false" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
           <folding />
         </state>
       </provider>
