@@ -6,12 +6,11 @@ This is my first expirience and my first project using Javascript - simple Phone
 
 PhoneBook 1.1
 [here will be some information]
-*
-*
-*
-*
-*
-
+!
+!
+!
+!
+!
 
 PhoneBook 1.0 - now you can:
 - Create contact
