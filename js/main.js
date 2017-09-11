@@ -38,9 +38,7 @@ var title = document.getElementsByClassName("contact_name"),
         })
     }
 }
-
 //---------------------------Pop up
-
 function addBtnContact() {
     document.forms["formAddContact"].reset();
     document.getElementById("formAddContact").setAttribute("onsubmit", " return saveContact(this)");
@@ -121,7 +119,29 @@ function saveContact(form) {
             }
         }
     }
-    if((w !== 1) && (m !== 1)){
+    var PATTERN = "^[0-9]{6,12}$";
+    var PATTERN_EMAIL = "^[a-zA-Z]{2,}@[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}";
+    for (i = 0; i < document.getElementsByClassName("tel_f").length; i++) {
+        if ((document.getElementById("formTelephone" + i).value == "") ||
+            (!document.getElementById("formTelephone" + i).value.match(PATTERN))){
+            var emptyTel = 1;
+            document.getElementById("formTelephone" + i).style.border = "2px solid red";
+            return false
+        }else{
+            document.getElementById("formTelephone" + i).style.border = "1px solid #F9B341";
+        }
+    }
+    for (i = 0; i < document.getElementsByClassName("email_f").length; i++) {
+        if ((document.getElementById("formEmail" + i).value == "") ||
+            (!document.getElementById("formEmail" + i).value.match(PATTERN_EMAIL))){
+            var emptyEmail = 1;
+            document.getElementById("formEmail" + i).style.border = "2px solid red";
+            return false
+        }else{
+            document.getElementById("formEmail" + i).style.border = "1px solid #F9B341"
+        }
+    }
+    if((w !== 1) && (m !== 1) && (emptyTel !== 1) && (emptyEmail !== 1)){
         contacts.push(contact);
         contacts.sort(compare);
         localStorage.setItem("contacts", JSON.stringify(contacts));
@@ -220,7 +240,7 @@ function editContact(editbtn) {
         var emptyLastname = 0;
         var emptyTel = 0;
         var emptyEmail = 0;
-        var PATTERN = "^[0-9]+$";
+        var PATTERN = "^[0-9]{6,12}$";
         var PATTERN_EMAIL = "^[a-zA-Z]{2,}@[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}";
         if (contact.name == ""){
             emptyName = 1;
@@ -269,6 +289,8 @@ function editContact(editbtn) {
                 (!document.getElementById("formTelephone" + i).value.match(PATTERN))){
                 emptyTel = 1;
                 document.getElementById("formTelephone" + i).style.border = "2px solid red";
+            }else{
+                document.getElementById("formTelephone" + i).style.border = "1px solid #F9B341";
             }
         }
         for (i = 0; i < document.getElementsByClassName("email_f").length; i++) {
@@ -276,6 +298,8 @@ function editContact(editbtn) {
             (!document.getElementById("formEmail" + i).value.match(PATTERN_EMAIL))){
                 emptyEmail = 1;
                 document.getElementById("formEmail" + i).style.border = "2px solid red"
+            }else{
+                document.getElementById("formEmail" + i).style.border = "1px solid #F9B341"
             }
         }
         if ((emptyName !== 1) && (emptyLastname !== 1) && (emptyTel !== 1) && (emptyEmail !== 1) && (w !== 1) && (m !== 1)) {
@@ -374,7 +398,7 @@ document.getElementById("plus_tel0").onclick = function plusTel() {
     pTelInput.className = "tel_f";
     divTelsForm.appendChild(pTelInput);
     var str = '<i class="fa new fa-mobile" aria-hidden="true"></i>';
-    str += '<input type="tel" name="telephone" id="formTelephone' + i + '" required placeholder="enter phone number">';
+    str += '<input type="tel" name="telephone" onkeyup="cutInvalid()" id="formTelephone' + i + '" required placeholder="enter phone number">';
     str += '<button onclick="minusTel(this)" type="button" id="'+i+'"><i class="fa fa-minus" aria-hidden="true"></i></button>';
     // str += '<p class="error" id="error'+i+'">Enter 6 - 12 numbers</p>';
     pTelInput.innerHTML += str;
@@ -447,18 +471,18 @@ function minusEmail(obj) {
     }
 }
 //---------------------------Validation
-function val () {
-    for (i = 0; i < document.getElementsByClassName("tel_f").length; i++) {
-        telValid = document.getElementById("formTelephone" + i);
-        telValid.setAttribute("minlength", "6");
-        telValid.setAttribute("maxlength", "12");
-        telValid.setAttribute("data-title", "Enter 6-12 numbers");
-        var PATTERN = "^[0-9]+$";
-        telValid.onkeyup = function () {
-        if (!telValid.value.match(PATTERN)) {
-            telValid.value = telValid.value.replace(telValid.value.slice(-1), "");
-        }
-        }
-    }
-}
-val();
+// function val () {
+//     for (i = 0; i < document.getElementsByClassName("tel_f").length; i++) {
+//         telValid = document.getElementById("formTelephone" + i);
+//         telValid.setAttribute("minlength", "6");
+//         telValid.setAttribute("maxlength", "12");
+//         telValid.setAttribute("data-title", "Enter 6-12 numbers");
+//         var PATTERN = "^[0-9]+$";
+//         telValid.onkeyup = function () {
+//         if (!telValid.value.match(PATTERN)) {
+//             telValid.value = telValid.value.replace(telValid.value.slice(-1), "");
+//         }
+//         }
+//     }
+// }
+// val();
