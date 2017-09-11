@@ -1,6 +1,18 @@
 # Hello everyone! 
 This is my first expirience and my first project using Javascript - simple PhoneBook
 
+[DEMO]:http://dmytzo.github.io
+[DEMO]
+
+PhoneBook 1.1
+[here will be some information]
+*
+*
+*
+*
+*
+
+
 PhoneBook 1.0 - now you can:
 - Create contact
 
@@ -34,8 +46,6 @@ PhoneBook 1.0 - now you can:
   
 - Roll/Unroll contact information
   * The accordion effect
-  
-[DEMO]:http://dmytzo.github.io
-[DEMO]
+
 
 I believe I will optimize and improve this program :)
